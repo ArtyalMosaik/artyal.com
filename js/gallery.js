@@ -242,7 +242,7 @@ function markdownToHtml(markdown) {
 }
 
 // Fetch the index.txt file
-fetch("/content/index.txt")
+fetch("../content/index.txt")
   .then((response) => response.text())
   .then((data) => {
     // Split the data into lines
@@ -252,7 +252,7 @@ fetch("/content/index.txt")
     lines.forEach((line, index) => {
       // Create a new section element
       const section = document.createElement("section");
-      fetch(`/content/${line}/content.txt`)
+      fetch(`../content/${line}/content.txt`)
         .then((response) => response.text())
         .then((data) => {
           // Split the data into sections
@@ -287,7 +287,7 @@ fetch("/content/index.txt")
           // For each image, create a new img element
           images.forEach((image, imageIndex) => {
             const img = document.createElement("img");
-            img.src = `/content/${line}/${image}`;
+            img.src = `../content/${line}/${image}`;
             img.alt = `Image ${imageIndex + 1}`;
             img.className = "item";
             sliderDiv.appendChild(img);

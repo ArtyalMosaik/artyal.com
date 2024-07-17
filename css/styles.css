@@ -9,12 +9,12 @@
 
 @font-face {
     font-family: 'Minion';
-    src: url("/res/Minion-Regular.otf");
+    src: url("../res/Minion-Regular.otf");
 }
 
 @font-face {
     font-family: "Century Gothic";
-    src: url("/res/centurygothic.ttf");
+    src: url("../res/centurygothic.ttf");
 }
 
 

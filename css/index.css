@@ -3,7 +3,7 @@ main {
     width: 100% !important;
 
     /* Image background */
-    background-image: url("/res/main.webp");
+    background-image: url("../res/main.webp");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
