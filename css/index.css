@@ -1,0 +1,38 @@
+main {
+    height: 100vh;
+    width: 100% !important;
+
+    /* Image background */
+    background-image: url("/res/main.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    /* Overlay */
+    display: flex;
+    align-items: center;
+
+}
+
+main h2 a {
+    font-size: 2em;
+    color: var(--background);
+    margin-left: 1em;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    text-decoration: none;
+    display: inline-block;
+    backdrop-filter: blur(0px);
+
+    transition: transform 0.3s, padding 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
+}
+
+main h2 a:hover {
+    /*     transform: translate(0, -0.5em);
+ */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 0.5em 0.2em rgba(0, 0, 0, 0.1);
+
+    /*     padding-bottom: 1.5em;
+ */
+}

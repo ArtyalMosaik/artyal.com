@@ -1,0 +1,49 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+
+    padding: 2em;
+    min-height: 50vh;
+    font-size: 2em;
+}
+
+main p {
+    text-align: justify;
+    margin: 0;
+}
+
+main h3 {
+    color: var(--ternary);
+}
+
+#social {
+    display: flex;
+    gap: 2em;
+
+}
+
+#social img {
+    transition: filter 0.3s;
+}
+
+#social img:hover {
+    /* https://isotropic.co/tool/hex-color-to-css-filter/ */
+    filter: invert(44%) sepia(18%) saturate(1537%) hue-rotate(130deg) brightness(90%) contrast(95%);
+}
+
+main img {
+    height: 2em;
+}
+
+main a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+main a:hover {
+    color: var(--primary);
+}

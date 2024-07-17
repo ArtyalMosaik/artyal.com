@@ -1,0 +1,123 @@
+:root {
+    --text: #07021c;
+    --text-primary: #0c5453;
+    --background: #f9f7fe;
+    --primary: #1b807e;
+    --secondary: #c3c6ca;
+    --ternary: #7ca499;
+}
+
+@font-face {
+    font-family: 'Minion';
+    src: url("/res/Minion-Regular.otf");
+}
+
+@font-face {
+    font-family: "Century Gothic";
+    src: url("/res/centurygothic.ttf");
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Century Gothic', sans-serif;
+}
+
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Minion', serif;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+header {
+    width: 100%;
+    height: fit-content;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2em;
+}
+
+#top {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    margin: 0;
+    padding: 1em 0;
+    background-color: var(--background);
+    color: var(--text-primary);
+
+}
+
+#top img {
+    height: 5em;
+    width: auto;
+    position: absolute;
+    right: 4em;
+    top: 3em;
+}
+
+#navigation {
+    display: flex;
+    justify-content: center;
+    background-color: var(--background);
+    gap: 0;
+    list-style: none;
+}
+
+#navigation a {
+    padding: 1em 2em;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    color: var(--text);
+
+    transition: color 0.3s, text-decoration-color 0.3s;
+    font-size: larger;
+}
+
+#navigation a:hover {
+    color: var(--primary);
+    text-decoration-color: var(--primary);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--ternary);
+    color: var(--background);
+    padding: 1em 0;
+}
+
+footer h3 {
+    margin: 0;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer img {
+    filter: invert(1);
+}
+
+.no-select {
+    /* Disable text selection */
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+}

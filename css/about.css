@@ -1,0 +1,22 @@
+main {
+    padding: 2em;
+    height: fit-content;
+}
+
+main img {
+    float: right;
+    height: 50vmin;
+    margin: 0 0 1em 1em;
+    border-radius: 1em;
+}
+
+main p {
+    text-align: justify;
+}
+
+/* Large screens */
+@media (min-width: 1600px) {
+    main {
+        margin: 0 25%;
+    }
+}
