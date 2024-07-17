@@ -121,3 +121,44 @@ footer img {
     -webkit-tap-highlight-color: transparent;
 
 }
+
+/* Mobile */
+
+@media screen and (max-width: 600px) {
+    #navigation {
+        flex-direction: column;
+        gap: 0.25em;
+        margin: 0;
+        padding: 0;
+    }
+
+    #navigation a {
+        padding: 0.5em 1em;
+    }
+
+    #navigation .current a {
+        text-decoration: underline;
+        color: var(--primary);
+    }
+
+    #navigation li {
+        display: flex;
+        justify-content: center;
+        margin: 0 1em;
+    }
+
+    #top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5em;
+        margin: 0 0.5em;
+    }
+
+    #top img {
+        position: relative;
+        top: unset;
+        right: unset;
+    }
+}

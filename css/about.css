@@ -20,3 +20,19 @@ main p {
         margin: 0 25%;
     }
 }
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main img {
+        float: none;
+        margin: 0;
+        height: 75vmin;
+        align-self: center;
+
+    }
+}

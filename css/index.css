@@ -36,3 +36,15 @@ main h2 a:hover {
     /*     padding-bottom: 1.5em;
  */
 }
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    main h2 a {
+        padding: 0.25em 0.5em;
+        margin: 0;
+    }
+
+    main {
+        height: 100vh;
+    }
+}

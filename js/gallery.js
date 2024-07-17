@@ -279,7 +279,7 @@ fetch("/content/index.txt")
 
           // Create a new div for the slider
           const sliderDiv = document.createElement("div");
-          sliderDiv.className = "slider";
+          sliderDiv.className = "slider no-select";
 
           // Split the images into lines
           const images = sections[1].trim().split("\n");

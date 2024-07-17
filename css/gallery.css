@@ -114,3 +114,27 @@ section .slider {
     cursor: pointer;
     color: var(--background-color);
 }
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+
+    section.img-right,
+    section.img-left {
+        grid-template-areas:
+            "img"
+            "text";
+        grid-template-columns: 1fr;
+    }
+
+    section .content {
+        padding: 1em;
+    }
+
+    section .slider {
+        height: 50vh;
+    }
+
+    section {
+        border-bottom: 1px solid var(--ternary);
+    }
+}
