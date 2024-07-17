@@ -47,3 +47,18 @@ main a {
 main a:hover {
     color: var(--primary);
 }
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    main {
+        font-size: 1.5em;
+    }
+
+    #social {
+        gap: 1em;
+    }
+
+    #social img {
+        height: 2em;
+    }
+}
