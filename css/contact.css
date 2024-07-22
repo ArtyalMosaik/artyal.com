@@ -62,3 +62,12 @@ main a:hover {
         height: 2em;
     }
 }
+
+@media print {
+
+    header,
+    footer,
+    nav {
+        display: none;
+    }
+}
