@@ -3,7 +3,7 @@ main {
     width: 100% !important;
 
     /* Image background */
-    background-image: url("../res/main.webp");
+    background-image: url("../res/main_image/main-320.webp");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -46,5 +46,67 @@ main h2 a:hover {
 
     main {
         height: 100vh;
+    }
+}
+
+/* Image background */
+@media (min-width: 321px) and (max-width: 480px) {
+    .div-background {
+        background-image: url('../res/main_image/main-480.webp');
+    }
+}
+
+/* Image background */
+@media (min-width: 481px) and (max-width: 640px) {
+    main {
+        background-image: url('../res/main_image/main-640.webp');
+    }
+}
+
+@media (min-width: 641px) and (max-width: 800px) {
+    main {
+        background-image: url('../res/main_image/main-800.webp');
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1024px) {
+    main {
+        background-image: url('../res/main_image/main-1024.webp');
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    main {
+        background-image: url('../res/main_image/main-1280.webp');
+    }
+}
+
+@media (min-width: 1281px) and (max-width: 1600px) {
+    main {
+        background-image: url('../res/main_image/main-1600.webp');
+    }
+}
+
+@media (min-width: 1601px) and (max-width: 1920px) {
+    main {
+        background-image: url('../res/main_image/main-1920.webp');
+    }
+}
+
+@media (min-width: 1921px) and (max-width: 2560px) {
+    main {
+        background-image: url('../res/main_image/main-2560.webp');
+    }
+}
+
+@media (min-width: 2561px) and (max-width: 3840px) {
+    main {
+        background-image: url('../res/main_image/main-3840.webp');
+    }
+}
+
+@media (min-width: 3841px) {
+    main {
+        background-image: url('../res/main_image/main.webp');
     }
 }

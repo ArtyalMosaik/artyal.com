@@ -238,6 +238,12 @@ function markdownToHtml(markdown) {
   // Convert line breaks
   markdown = markdown.replace(/\n$/gim, "<br />");
 
+  // Convert quotes
+  markdown = markdown.replace(/^\>(.*)$/gim, "<blockquote>$1</blockquote>");
+
+  // Merge back to back blockquotes
+  markdown = markdown.replace(/<\/blockquote>\n<blockquote>/gim, "<br>");
+
   return markdown.trim();
 }
 

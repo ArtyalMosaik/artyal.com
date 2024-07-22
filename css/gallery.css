@@ -36,6 +36,17 @@ section .content h6 {
     padding: 0;
 }
 
+
+section .content blockquote {
+    margin: 0;
+    padding: 0;
+    padding-left: 1em;
+    margin-top: 1em;
+    font-style: italic;
+    border-left: 5px solid var(--ternary);
+
+}
+
 section .slider {
     grid-area: img;
     position: relative;
