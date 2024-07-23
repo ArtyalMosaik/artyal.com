@@ -8,7 +8,7 @@ image5.jpg
 image6.jpg
 image7.jpg
 ---
-## Raconter la légende
+# Raconter la légende
 Pour mon projet de diplôme je propose une interprétation de la ville d’Ys en mosaïque comme un élément caché, précieux au milieu d’une structure qui la domine mais qui en même temps se compose autour d’elle. 🏙
 
 Ce projet me permet de raconter la légende de manière figurative mais aussi très symbolique en réutilisant des éléments phares qui expriment la Bretagne. 
