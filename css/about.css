@@ -5,18 +5,13 @@ main {
 
 main img {
     position: relative;
-    height: 50vmin;
+    max-height: 50vmin;
+    width: auto;
     margin: 0 0 1em 1em;
     border-radius: 1em;
+    object-fit: cover;
 }
 
-.image-right {
-    float: right;
-}
-
-.image-left {
-    float: left;
-}
 
 .image-center {
     display: block;
@@ -44,11 +39,12 @@ main p {
         flex-direction: column;
     }
 
-    main img {
+    main img .image-center {
         float: none;
         margin: 0;
-        height: 75vmin;
         align-self: center;
+        max-width: 100%;
+        max-height: 75vmin;
 
     }
 }
