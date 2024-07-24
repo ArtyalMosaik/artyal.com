@@ -2,6 +2,13 @@
 
 read -p "Glisse-dépose l'image ici " input_file
 
+# Check if imagemagick is installed
+if ! [ -x "$(command -v magick)" ]; then
+  # Install it with apt
+  sudo apt update
+  sudo apt install imagemagick -y
+fi
+
 # remove quotes from file path
 input_file=$(echo $input_file | sed "s/'//g")
 
