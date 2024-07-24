@@ -28,13 +28,8 @@ main h2 a {
 }
 
 main h2 a:hover {
-    /*     transform: translate(0, -0.5em);
- */
     backdrop-filter: blur(10px);
     box-shadow: 0 0 0.5em 0.2em rgba(0, 0, 0, 0.1);
-
-    /*     padding-bottom: 1.5em;
- */
 }
 
 /* Mobile */

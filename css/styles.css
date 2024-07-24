@@ -9,11 +9,13 @@
 
 @font-face {
     font-family: 'Minion';
+    font-display: swap;
     src: url("../res/Minion-Regular.otf");
 }
 
 @font-face {
     font-family: "Century Gothic";
+    font-display: swap;
     src: url("../res/centurygothic.ttf");
 }
 
