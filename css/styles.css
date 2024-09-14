@@ -8,9 +8,9 @@
 }
 
 @font-face {
-    font-family: 'Minion';
+    font-family: 'CenturyGothic-Bold';
     font-display: swap;
-    src: url("../res/Minion-Regular.otf");
+    src: url("../res/CenturyGothic-Bold.ttf");
 }
 
 @font-face {
@@ -26,7 +26,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Minion', serif;
+    font-family: 'CenturyGothic-Bold', serif;
 }
 
 
