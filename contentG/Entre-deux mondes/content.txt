@@ -2,6 +2,7 @@ Entre-deux mondes
 ---
 image1.png
 image2.png
+image2.JPG
 image3.JPG
 image5.JPEG
 image6.png
