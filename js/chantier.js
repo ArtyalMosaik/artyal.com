@@ -31,152 +31,152 @@ function addEventListenerChildren(element, event, func) {
 }
 
 // Fonction pour passer à l'image suivante
-function next(gallery, already_done = 0, allow_loop = false) {
+function next(chantiers, already_done = 0, allow_loop = false) {
   let transitionTime = transitionDuration * (1 - already_done);
   if (transitionTime < 0) {
     transitionTime = transitionDuration;
   }
-  if (gallery.current == gallery.max) {
-    if (gallery.max == 0) {
-      console.warn("Galerie n'a pas d'éléments");
+  if (chantiers.current == chantiers.max) {
+    if (chantiers.max == 0) {
+      console.warn("Chantier n'a pas d'éléments");
       return;
     }
     if (allow_loop) {
-      gallery.current = 1;
-      prev(gallery, 0);
-    } else set_gallery(gallery, gallery.current, transitionTime);
-    console.log("Atteint la fin de la galerie");
+      chantiers.current = 1;
+      prev(chantiers, 0);
+    } else set_chantier(chantiers, chantiers.current, transitionTime);
+    console.log("Atteint la fin du chantier");
     return;
   }
-  gallery.current++;
-  set_gallery(gallery, gallery.current, transitionTime);
+  chantiers.current++;
+  set_chantier(chantiers, chantiers.current, transitionTime);
 }
 
 // Fonction pour revenir à l'image précédente
-function prev(gallery, already_done = 0) {
+function prev(chantiers, already_done = 0) {
   let transitionTime = transitionDuration * (1 - already_done);
   if (transitionTime < 0) {
     transitionTime = transitionDuration;
   }
-  if (gallery.current == 0) {
-    set_gallery(gallery, gallery.current, transitionTime);
-    console.log("Atteint le début de la galerie");
+  if (chantiers.current == 0) {
+    set_chantier(chantiers, chantiers.current, transitionTime);
+    console.log("Atteint le début du chantier");
     return;
   }
-  gallery.current--;
-  set_gallery(gallery, gallery.current, transitionTime);
+  chantiers.current--;
+  set_chantier(chantiers, chantiers.current, transitionTime);
 }
 
-// Fonction pour définir la galerie
-function set_gallery(gallery, index = -1, transitionTime = transitionDuration) {
+// Fonction pour définir la galerie de chantier
+function set_chantier(chantiers, index = -1, transitionTime = transitionDuration) {
   if (index == -1) {
-    index = gallery.current;
+    index = chantiers.current;
   }
-  if (index < 0 || index > gallery.max) {
+  if (index < 0 || index > chantiers.max) {
     console.warn("Index hors de portée");
     return;
   }
 
-  for (let j = 0; j < gallery.items.length; j++) {
-    let image = gallery.items[j];
+  for (let j = 0; j < chantiers.items.length; j++) {
+    let image = chantiers.items[j];
     image.style.transitionDuration = transitionTime + "ms";
     image.style.transform = "translateX(" + (j - index) * 100 + "% )";
   }
 }
 
-// Fonction pour lier les événements de la galerie
-function bind_gallery(gallery) {
-  let items = gallery.querySelectorAll(".item");
-  gallery["items"] = items;
-  gallery["current"] = 0;
-  gallery["max"] = items.length - 1;
+// Fonction pour lier les événements de la galerie de chantier
+function bind_chantier(chantiers) {
+  let items = chantiers.querySelectorAll(".item");
+  chantiers["items"] = items;
+  chantiers["current"] = 0;
+  chantiers["max"] = items.length - 1;
 
-  set_gallery(gallery, 0, 0);
+  set_chantier(chantiers, 0, 0);
 
-  addEventListenerChildren(gallery, "click", (event) => {
+  addEventListenerChildren(chantiers, "click", (event) => {
     if (Date.now() - last_touch < 500) {
       return;
     }
-    let currentGallery = event.intendedTarget;
-    let rect = currentGallery.getBoundingClientRect();
+    let currentChantier = event.intendedTarget;
+    let rect = currentChantier.getBoundingClientRect();
     let x = event.clientX - rect.left;
-    cancel_hint(currentGallery);
-    if (x > currentGallery.offsetWidth * 0.35) {
-      next(currentGallery, 0, true);
+    cancel_hint(currentChantier);
+    if (x > currentChantier.offsetWidth * 0.35) {
+      next(currentChantier, 0, true);
     } else {
-      prev(currentGallery);
+      prev(currentChantier);
     }
   });
 
-  addEventListenerChildren(gallery, "touchstart", function (event) {
+  addEventListenerChildren(chantiers, "touchstart", function (event) {
     touch_startX = event.changedTouches[0].screenX;
     touch_startY = event.changedTouches[0].screenY;
   });
 
-  addEventListenerChildren(gallery, "touchmove", function (event) {
-    let currentGallery = event.intendedTarget;
-    cancel_hint(currentGallery);
+  addEventListenerChildren(chantiers, "touchmove", function (event) {
+    let currentChantier = event.intendedTarget;
+    cancel_hint(currentChantier);
     let touchPercentage =
       (event.changedTouches[0].screenX - touch_startX) /
-      currentGallery.offsetWidth;
-    for (let j = 0; j < currentGallery.items.length; j++) {
-      let image = currentGallery.items[j];
+      currentChantier.offsetWidth;
+    for (let j = 0; j < currentChantier.items.length; j++) {
+      let image = currentChantier.items[j];
       image.style.transitionDuration = 0 + "ms";
       image.style.transform =
         "translateX(" +
-        (j - currentGallery.current + touchPercentage) * 100 +
+        (j - currentChantier.current + touchPercentage) * 100 +
         "% )";
     }
   });
 
-  addEventListenerChildren(gallery, "touchend", function (event) {
+  addEventListenerChildren(chantiers, "touchend", function (event) {
     last_touch = Date.now();
-    let currentGallery = event.intendedTarget;
+    let currentChantier = event.intendedTarget;
     touch_endX = event.changedTouches[0].screenX;
     touch_endY = event.changedTouches[0].screenY;
-    let touchPercentage = (touch_endX - touch_startX) / gallery.offsetWidth;
+    let touchPercentage = (touch_endX - touch_startX) / chantiers.offsetWidth;
     if (
       Math.abs(touch_endY - touch_startY) > Math.abs(touch_endX - touch_startX)
     ) {
-      set_gallery(currentGallery, -1, transitionDuration);
+      set_chantier(currentChantier, -1, transitionDuration);
       return;
     } else if (touchPercentage > 0.2) {
-      prev(currentGallery, Math.abs(touchPercentage));
+      prev(currentChantier, Math.abs(touchPercentage));
     } else if (touchPercentage < -0.2) {
-      next(currentGallery, Math.abs(touchPercentage), true);
+      next(currentChantier, Math.abs(touchPercentage), true);
     } else if (Math.abs(touchPercentage) > 0.1) {
-      set_gallery(
-        currentGallery,
+      set_chantier(
+        currentChantier,
         -1,
         Math.abs(touchPercentage) * transitionDuration
       );
     } else {
-      const rect = currentGallery.getBoundingClientRect();
+      const rect = currentChantier.getBoundingClientRect();
       const x = touch_endX - rect.left;
-      if (x > gallery.offsetWidth * 0.35) {
-        next(currentGallery);
+      if (x > chantiers.offsetWidth * 0.35) {
+        next(currentChantier);
       } else {
-        prev(currentGallery);
+        prev(currentChantier);
       }
     }
-    cancel_hint(currentGallery);
+    cancel_hint(currentChantier);
   });
 
-  gallery.hint = setInterval(() => {
-    hint_slide(gallery);
+  chantiers.hint = setInterval(() => {
+    hint_slide(chantiers);
   }, 2000);
 
-  cancel_hint(gallery);
+  cancel_hint(chantiers);
 }
 
-function cancel_hint(gallery) {
-  clearInterval(gallery.hint);
+function cancel_hint(chantiers) {
+  clearInterval(chantiers.hint);
 }
 
-function hint_slide(gallery) {
-  set_gallery(gallery, gallery.current + 0.1, hintDuration / 2);
+function hint_slide(chantiers) {
+  set_chantier(chantiers, chantiers.current + 0.1, hintDuration / 2);
   setTimeout(() => {
-    set_gallery(gallery, gallery.current, hintDuration / 2);
+    set_chantier(chantiers, chantiers.current, hintDuration / 2);
   }, hintDuration / 2);
 }
 
@@ -196,14 +196,14 @@ function markdownToHtml(markdown) {
   return markdown.trim();
 }
 
-// Fetch the index.txt file
-fetch("../contentG/index.txt")
+// Fetch the index.txt file from contentC
+fetch("../contentC/index.txt")
   .then((response) => response.text())
   .then((data) => {
     const lines = data.split("\n");
     lines.forEach((line, index) => {
       const section = document.createElement("section");
-      fetch(`../contentG/${line}/content.txt`)
+      fetch(`../contentC/${line}/content.txt`)
         .then((response) => response.text())
         .then((data) => {
           const sections = data.split("---");
@@ -228,7 +228,7 @@ fetch("../contentG/index.txt")
           const images = sections[1].trim().split("\n");
           images.forEach((image, imageIndex) => {
             const img = document.createElement("img");
-            img.src = `../contentG/${line}/${image}`;
+            img.src = `../contentC/${line}/${image}`;
             img.alt = `Image ${imageIndex + 1}`;
             img.className = "item";
             sliderDiv.appendChild(img);
@@ -249,8 +249,9 @@ fetch("../contentG/index.txt")
           sliderDiv.appendChild(controls);
 
           section.appendChild(sliderDiv);
-          bind_gallery(sliderDiv);
+          bind_chantier(sliderDiv);
         });
       document.querySelector("main").appendChild(section);
     });
   });
+
