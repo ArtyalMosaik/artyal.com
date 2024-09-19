@@ -19,7 +19,6 @@
     src: url("../res/centurygothic.ttf");
 }
 
-
 h1,
 h2,
 h3,
@@ -28,7 +27,6 @@ h5,
 h6 {
     font-family: 'CenturyGothic-Bold', serif;
 }
-
 
 body,
 html {
@@ -57,7 +55,6 @@ header h1 {
     padding: 1em 0;
     background-color: var(--background);
     color: var(--text-primary);
-
 }
 
 #top img {
@@ -121,11 +118,9 @@ footer img {
     -webkit-user-select: none;
     -o-user-select: none;
     -webkit-tap-highlight-color: transparent;
-
 }
 
-/* Mobile */
-
+/* Mobile Styles */
 @media screen and (max-width: 600px) {
     #navigation {
         flex-direction: column;
@@ -161,4 +156,8 @@ footer img {
         top: unset;
         right: unset;
     }
-}
+
+    /* Réduire la taille du texte sur mobile */
+    .texte-projet a {
+        font-size: 24px; /* Ajuste la taille du texte selon tes besoins */
+    
