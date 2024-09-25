@@ -42,21 +42,22 @@ header h1 {
 }
 
 #top {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1em;
     margin: 0;
-    padding: 1em 0;
     background-color: var(--background);
     color: var(--text-primary);
 }
 
 #top img {
-    height: 5em;
-    width: auto;
+    height: auto;
+    width: 100%; /* Responsive width to ensure image scales well on all devices */
+    max-width: 150px; /* You can adjust this to suit your design */
     position: absolute;
-    right: 4em;
-    top: 3em;
+    right: 1em;
+    top: 1em;
 }
 
 #navigation {
@@ -139,13 +140,16 @@ footer img {
 
     #top {
         display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
+        text-align: center;
     }
 
     #top img {
         position: relative;
+        max-width: 80px; /* Further reduce image size on mobile */
+        height: auto;
         top: unset;
         right: unset;
     }
@@ -154,4 +158,4 @@ footer img {
     .texte-projet a {
         font-size: 24px;
     }
-} /* Accolade fermante manquante */
+}
