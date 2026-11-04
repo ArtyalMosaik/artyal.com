@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { unified } from '@astrojs/markdown-remark';
 import remarkContentImages from './src/plugins/remark-content-images.mjs';
 
 // BASE_PATH est injecté par le workflow GitHub Actions (vide pour un domaine personnalisé).
@@ -13,7 +14,9 @@ export default defineConfig({
   trailingSlash: 'ignore',
   markdown: {
     // Garde les apostrophes et guillemets tels qu'ils sont saisis (pas de typographie automatique)
-    smartypants: false,
-    remarkPlugins: [[remarkContentImages, { base }]],
+    processor: unified({
+      smartypants: false,
+      remarkPlugins: [[remarkContentImages, { base }]],
+    }),
   },
 });
