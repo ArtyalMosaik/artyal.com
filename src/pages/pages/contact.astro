@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SocialLinks from '../../components/SocialLinks.astro';
 import '../../styles/contact.css';
-import { pageUrl } from '../../utils/assets';
+import { settings, phoneHref } from '../../utils/site';
 ---
 
 <Layout
@@ -11,16 +12,9 @@ import { pageUrl } from '../../utils/assets';
 >
   <main>
     <h3>Yaëlle Lohé</h3>
-    <div id="social">
-      <a href="https://www.instagram.com/artyal.mosaik/">
-        <img src={pageUrl('res/icons/instagram.svg')} alt="Instagram Logo" />
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61556821594463">
-        <img src={pageUrl('res/icons/facebook.svg')} alt="Facebook Logo" />
-      </a>
-    </div>
+    <SocialLinks />
 
-    <p><a href="mailto:mosaik@artyal.com" target="_blank">mosaik@artyal.com</a></p>
-    <p><a href="tel:+33777209500">+33 7 77 20 95 00</a></p>
+    {settings.email && <p><a href={`mailto:${settings.email}`} target="_blank">{settings.email}</a></p>}
+    {settings.phone && <p><a href={phoneHref(settings.phone)}>{settings.phone}</a></p>}
   </main>
 </Layout>

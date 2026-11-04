@@ -13,7 +13,8 @@ main img {
 }
 
 
-.image-center {
+.image-center,
+main p > img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -39,7 +40,8 @@ main p {
         flex-direction: column;
     }
 
-    main img .image-center {
+    main img .image-center,
+    main p > img {
         float: none;
         margin: 0;
         align-self: center;

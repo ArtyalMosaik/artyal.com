@@ -6,7 +6,7 @@ main {
     background-position: center;
     background-attachment: scroll;
 
-    /* Image par défaut (basique pour éviter le chargement inutile) */
+    /* Image par défaut : la plus légère (petits écrans en portrait) */
     background-image: url('/res/main_image/main-720.webp');
     
     /* Overlay */
@@ -31,57 +31,34 @@ main h2 a:hover {
     box-shadow: 0 0 0.5em 0.2em rgba(0, 0, 0, 0.1);
 }
 
-/* --- Mobile et tablette en orientation portrait --- */
-@media screen and (max-width: 600px) and (orientation: portrait) {
-    main {
-        background-image: url('/res/main_image/main-720.webp'); /* Image optimisée pour petits écrans en portrait */
-    }
-}
+/* Image de fond selon l'écran. Les règles vont du plus petit au plus grand écran :
+   chacune ne s'applique qu'à sa plage, donc l'ordre n'a pas d'effet de surcharge. */
 
-@media screen and (max-width: 1024px) and (orientation: portrait) {
-    main {
-        background-image: url('/res/main_image/main-1080.webp'); /* Pour tablettes ou grands mobiles en portrait */
-    }
-}
-
-/* --- Mobile et tablette en orientation paysage --- */
+/* Mobile (≤ 600px) : portrait = image par défaut (720) */
 @media screen and (max-width: 600px) and (orientation: landscape) {
-    main {
-        background-image: url('/res/main_image/main-1080.webp'); /* Image plus large pour petits écrans en paysage */
-    }
+    main { background-image: url('/res/main_image/main-1080.webp'); }
 }
 
-@media screen and (max-width: 1024px) and (orientation: landscape) {
-    main {
-        background-image: url('/res/main_image/main-1280.webp'); /* Image pour tablettes et grands mobiles en paysage */
-    }
+/* Mobile haute densité (Retina et autres) */
+@media screen and (max-width: 600px) and (orientation: portrait) and (min-resolution: 192dpi) {
+    main { background-image: url('/res/main_image/main-1080.webp'); }
+}
+@media screen and (max-width: 600px) and (orientation: landscape) and (min-resolution: 192dpi) {
+    main { background-image: url('/res/main_image/main-1280.webp'); }
 }
 
-/* --- Écrans haute densité (Retina et autres) en portrait --- */
-@media screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (orientation: portrait) {
-    main {
-        background-image: url('/res/main_image/main-1080.webp'); /* Pour mobiles haute résolution en portrait */
-    }
+/* Tablettes (601px – 1024px) */
+@media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+    main { background-image: url('/res/main_image/main-1080.webp'); }
+}
+@media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
+    main { background-image: url('/res/main_image/main-1280.webp'); }
 }
 
-/* --- Écrans haute densité (Retina et autres) en paysage --- */
-@media screen and (max-width: 600px) and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (orientation: landscape) {
-    main {
-        background-image: url('/res/main_image/main-1280.webp'); /* Pour mobiles haute résolution en paysage */
-    }
+/* Grands écrans (≥ 1025px) */
+@media screen and (min-width: 1025px) and (orientation: portrait) {
+    main { background-image: url('/res/main_image/main-1920.webp'); }
 }
-
-/* --- Pour les tablettes et grands écrans --- */
-/* Portrait */
-@media (min-width: 1025px) and (orientation: portrait) {
-    main {
-        background-image: url('/res/main_image/main-1920.webp'); /* Image pour grands écrans en portrait */
-    }
-}
-
-/* Paysage */
-@media (min-width: 1025px) and (orientation: landscape) {
-    main {
-        background-image: url('/res/main_image/main-2560.webp'); /* Image pour grands écrans en paysage */
-    }
+@media screen and (min-width: 1025px) and (orientation: landscape) {
+    main { background-image: url('/res/main_image/main-2560.webp'); }
 }

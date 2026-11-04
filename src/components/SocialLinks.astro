@@ -1,0 +1,27 @@
+---
+import { pageUrl } from '../utils/assets';
+import { settings } from '../utils/site';
+
+interface Props {
+  /** Taille fixe des icônes (attributs height/width), utilisée sur l'accueil */
+  size?: string;
+}
+const { size } = Astro.props;
+---
+
+<div id="social">
+  {
+    settings.instagram && (
+      <a href={settings.instagram}>
+        <img src={pageUrl('res/icons/instagram.svg')} alt="Instagram Logo" height={size} width={size} />
+      </a>
+    )
+  }
+  {
+    settings.facebook && (
+      <a href={settings.facebook}>
+        <img src={pageUrl('res/icons/facebook.svg')} alt="Facebook Logo" height={size} width={size} />
+      </a>
+    )
+  }
+</div>

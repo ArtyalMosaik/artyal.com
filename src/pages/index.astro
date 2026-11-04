@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/index.css';
+import SocialLinks from '../components/SocialLinks.astro';
 import { pageUrl } from '../utils/assets';
 
 const site = 'https://www.artyal.com';
@@ -48,14 +49,7 @@ const sizes = [...widths.slice(0, -1).map((w) => `(max-width: ${w}px) ${w}px`), 
     <h3>Yaëlle Lohé</h3>
     <p>Artiste Mosaïste</p>
 
-    <div id="social">
-      <a href="https://www.instagram.com/artyal.mosaik/">
-        <img src={pageUrl('res/icons/instagram.svg')} alt="Instagram Logo" height="32px" width="32px" />
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61556821594463">
-        <img src={pageUrl('res/icons/facebook.svg')} alt="Facebook Logo" height="32px" width="32px" />
-      </a>
-    </div>
+    <SocialLinks size="32px" />
   </footer>
 
   <img src={src} srcset={srcset} sizes={sizes} style="display: none;" alt="" />

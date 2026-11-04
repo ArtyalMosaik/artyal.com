@@ -22,7 +22,7 @@ input_file=$(echo $input_file | sed "s/'//g")
 echo "Creating resized images for $input_file"
 
 # Create an array of desired widths
-sizes=(320 480 640 800 1024 1280 1600 1920 2560 3840)
+sizes=(320 480 640 720 800 1024 1080 1280 1600 1920 2560 3840)
 
 # Loop through sizes and create resized images
 for size in "${sizes[@]}"

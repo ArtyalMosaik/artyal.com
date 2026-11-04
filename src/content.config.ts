@@ -16,7 +16,14 @@ const project = (folder: string) =>
     }),
   });
 
+// Pages libres (ex. À propos) : titre + texte Markdown, images insérées dans le texte.
+const pages = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/pages' }),
+  schema: z.object({ title: z.string() }),
+});
+
 export const collections = {
+  pages,
   galerie: project('galerie'),
   chantiers: project('chantiers'),
 };
