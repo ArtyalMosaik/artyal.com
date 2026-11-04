@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectList from '../../components/ProjectList.astro';
+import { getProjects } from '../../utils/project';
+
+const projects = await getProjects('chantiers');
+---
+
+<Layout title="ARTYAL Mozaïk - Chantier" current={['chantier']}>
+  <ProjectList projects={projects} />
+</Layout>

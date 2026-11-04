@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectList from '../../components/ProjectList.astro';
+import { getProjects } from '../../utils/project';
+
+const projects = await getProjects('galerie');
+---
+
+<Layout
+  title="ARTYAL Mozaïk - Galerie"
+  description="Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque."
+  current={['gallery', 'chantier']}
+>
+  <ProjectList projects={projects} />
+</Layout>

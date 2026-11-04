@@ -1,0 +1,42 @@
+---
+import '../styles/projects.css';
+import type { ProjectView } from '../utils/project';
+
+interface Props {
+  projects: ProjectView[];
+}
+
+const { projects } = Astro.props;
+---
+
+<main>
+  {
+    projects.map((project) => (
+      <section class={project.side}>
+        <div class="content">
+          <h2>{project.title}</h2>
+          <div class="description" set:html={project.html} />
+        </div>
+
+        <div class="slider no-select">
+          {project.images.map((src, index) => (
+            <img
+              src={src}
+              alt={`Image ${index + 1}`}
+              class="item"
+              style={`transition-duration: 0ms; transform: translateX(${index * 100}% );`}
+            />
+          ))}
+          <div class="controls">
+            <div class="prev no-select">&lt;</div>
+            <div class="next no-select">&gt;</div>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+</main>
+
+<script>
+  import '../scripts/slider';
+</script>

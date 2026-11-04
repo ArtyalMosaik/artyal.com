@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/index.css';
+import { pageUrl } from '../utils/assets';
+
+const site = 'https://www.artyal.com';
+const title = 'ARTYAL Mozaïk - Accueil';
+const ogDescription = 'Découvrez les créations en mosaïque de Yaëlle Lohé, artiste mosaïste.';
+const ogImage = `${site}/res/main_image/main-1280.webp`;
+
+// Image d'accueil : tailles responsives pré-calculées (voir scripts/resize.sh)
+const widths = [320, 480, 640, 800, 1024, 1280, 1600, 1920];
+const src = pageUrl('res/main_image/main-320.webp');
+const srcset = widths.map((w) => `${pageUrl(`res/main_image/main-${w}.webp`)} ${w}w`).join(', ');
+const sizes = [...widths.slice(0, -1).map((w) => `(max-width: ${w}px) ${w}px`), '1920px'].join(', ');
+---
+
+<Layout
+  title={title}
+  description="Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque."
+  current={['home']}
+  home
+>
+  <Fragment slot="head">
+    <!-- Open Graph meta tags for social media sharing (Facebook, Instagram) -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={site} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+  </Fragment>
+
+  <main>
+    <section id="contentG">
+      <h2 class="texte-projet">
+        <a href={pageUrl('pages/gallery.html')}>Découvrez les projets &gt;</a>
+      </h2>
+    </section>
+  </main>
+
+  <footer>
+    <h3>Yaëlle Lohé</h3>
+    <p>Artiste Mosaïste</p>
+
+    <div id="social">
+      <a href="https://www.instagram.com/artyal.mosaik/">
+        <img src={pageUrl('res/icons/instagram.svg')} alt="Instagram Logo" height="32px" width="32px" />
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61556821594463">
+        <img src={pageUrl('res/icons/facebook.svg')} alt="Facebook Logo" height="32px" width="32px" />
+      </a>
+    </div>
+  </footer>
+
+  <img src={src} srcset={srcset} sizes={sizes} style="display: none;" alt="" />
+</Layout>

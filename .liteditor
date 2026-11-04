@@ -1,0 +1,34 @@
+{
+  "content_path": "src/content",
+  "assets_path": "public/images",
+  "frontmatter": {
+    "title": {
+      "label": "Titre",
+      "description": "Nom de l'œuvre ou du chantier, affiché au-dessus du texte",
+      "type": "short-text"
+    },
+    "order": {
+      "label": "Position",
+      "description": "Place dans la page : 1 = en premier. Les fiches impaires ont l'image à gauche, les paires à droite.",
+      "type": "short-text"
+    },
+    "images": {
+      "label": "Images",
+      "description": "Photos du slider, dans l'ordre d'affichage",
+      "type": "list",
+      "itemSchema": {
+        "label": "Image",
+        "type": "image"
+      }
+    },
+    "details": {
+      "label": "Détails",
+      "description": "Une ligne par information, affichées en italique sous le texte : année, dimensions, matériaux, prix ou « Vendue »…",
+      "type": "list",
+      "itemSchema": {
+        "label": "Ligne",
+        "type": "short-text"
+      }
+    }
+  }
+}
