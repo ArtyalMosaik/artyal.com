@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SocialLinks from '../../components/SocialLinks.astro';
+import '../../styles/contact.css';
+import { settings, phoneHref } from '../../utils/site';
+---
+
+<Layout
+  title="ARTYAL Mozaïk - Contact"
+  description="Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque."
+  current={['chantier', 'contact']}
+>
+  <main>
+    <h3>Yaëlle Lohé</h3>
+    <SocialLinks />
+
+    {settings.email && <p><a href={`mailto:${settings.email}`} target="_blank">{settings.email}</a></p>}
+    {settings.phone && <p><a href={phoneHref(settings.phone)}>{settings.phone}</a></p>}
+  </main>
+</Layout>

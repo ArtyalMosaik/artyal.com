@@ -1,0 +1,19 @@
+---
+import { getEntry, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/about.css';
+
+const page = (await getEntry('pages', 'about'))!;
+const { Content } = await render(page);
+---
+
+<Layout
+  title="ARTYAL Mozaïk - À propos"
+  description="Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque."
+  current={['chantier', 'about']}
+>
+  <main>
+    <h2>{page.data.title}</h2>
+    <Content />
+  </main>
+</Layout>

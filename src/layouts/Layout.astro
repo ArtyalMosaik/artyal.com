@@ -1,0 +1,54 @@
+---
+import '../styles/styles.css';
+import { pageUrl } from '../utils/assets';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Entrées du menu à marquer `current` (identifiants : home, gallery, chantier, about, contact) */
+  current?: string[];
+  /** Lien « Accueil » : `#` sur la page d'accueil elle-même */
+  home?: boolean;
+}
+
+const { title, description, current = [], home = false } = Astro.props;
+
+const nav = [
+  { id: 'home', label: 'Accueil', href: home ? '#' : pageUrl('index.html') },
+  { id: 'gallery', label: 'Galerie', href: pageUrl('pages/gallery.html') },
+  { id: 'chantier', label: 'Chantiers et commandes', href: pageUrl('pages/chantier.html') },
+  { id: 'about', label: 'À propos', href: pageUrl('pages/about.html') },
+  { id: 'contact', label: 'Contact', href: pageUrl('pages/contact.html') },
+];
+const logo = pageUrl('res/logo.svg');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <slot name="head" />
+    <link rel="shortcut icon" href={logo} type="image/x-icon" />
+  </head>
+
+  <body>
+    <header>
+      <div id="top">
+        <h1>ARTYAL Mozaïk</h1>
+        <img src={logo} alt="Logo" height="5em" width="3.5em" />
+      </div>
+
+      <ul id="navigation">
+        {nav.map((item) => (
+          <li class={current.includes(item.id) ? 'current' : ''}>
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </header>
+    <slot />
+  </body>
+</html>
