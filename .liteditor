@@ -1,0 +1,62 @@
+{
+  "content_path": "src/content",
+  "assets_path": "public/images",
+  "settings_file": "src/data/site.json",
+  "schema": {
+    "homeBackground": {
+      "label": "Image de fond de l'accueil",
+      "description": "Photo plein écran de la page d'accueil. Les tailles pour mobile, tablette et grand écran sont générées automatiquement : une grande photo (≥ 2560 px de large) convient.",
+      "type": "image"
+    },
+    "email": {
+      "label": "E-mail de contact",
+      "description": "Affiché sur la page Contact (lien mailto). Laisser vide pour masquer.",
+      "type": "short-text"
+    },
+    "phone": {
+      "label": "Téléphone",
+      "description": "Affiché tel quel sur la page Contact, ex. +33 7 77 20 95 00. Laisser vide pour masquer.",
+      "type": "short-text"
+    },
+    "instagram": {
+      "label": "Lien Instagram",
+      "description": "Icône affichée sur l'accueil et la page Contact. Laisser vide pour masquer.",
+      "type": "link"
+    },
+    "facebook": {
+      "label": "Lien Facebook",
+      "description": "Icône affichée sur l'accueil et la page Contact. Laisser vide pour masquer.",
+      "type": "link"
+    }
+  },
+  "frontmatter": {
+    "title": {
+      "label": "Titre",
+      "description": "Titre de la page (À propos) ou nom de l'œuvre / du chantier, affiché au-dessus du texte",
+      "type": "short-text"
+    },
+    "order": {
+      "label": "Position",
+      "description": "Galerie et Chantiers uniquement. Place dans la page : 1 = en premier. Les fiches impaires ont l'image à gauche, les paires à droite.",
+      "type": "short-text"
+    },
+    "images": {
+      "label": "Images",
+      "description": "Galerie et Chantiers uniquement. Photos du slider, dans l'ordre d'affichage",
+      "type": "list",
+      "itemSchema": {
+        "label": "Image",
+        "type": "image"
+      }
+    },
+    "details": {
+      "label": "Détails",
+      "description": "Galerie et Chantiers uniquement. Une ligne par information, affichées en italique sous le texte : année, dimensions, matériaux, prix ou « Vendue »…",
+      "type": "list",
+      "itemSchema": {
+        "label": "Ligne",
+        "type": "short-text"
+      }
+    }
+  }
+}

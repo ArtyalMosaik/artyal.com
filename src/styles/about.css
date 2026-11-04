@@ -1,0 +1,52 @@
+main {
+    padding: 2em;
+    height: fit-content;
+}
+
+main img {
+    position: relative;
+    max-height: 50vmin;
+    width: auto;
+    margin: 0 0 1em 1em;
+    border-radius: 1em;
+    object-fit: cover;
+}
+
+
+.image-center,
+main p > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+}
+
+main p {
+    text-align: justify;
+}
+
+/* Large screens */
+@media (min-width: 1600px) {
+    main {
+        margin: 0 25%;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main img .image-center,
+    main p > img {
+        float: none;
+        margin: 0;
+        align-self: center;
+        max-width: 100%;
+        max-height: 75vmin;
+
+    }
+}
