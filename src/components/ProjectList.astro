@@ -7,11 +7,14 @@ interface Props {
 }
 
 const { projects } = Astro.props;
+
+// Largeur affichée du slider : toute la largeur moins les marges (mobile), 2/3 de celle-ci sinon
+const sizes = '(max-width: 600px) calc(100vw - 64px), calc((100vw - 64px) * 0.667)';
 ---
 
 <main>
   {
-    projects.map((project) => (
+    projects.map((project, projectIndex) => (
       <section class={project.side}>
         <div class="content">
           <h2>{project.title}</h2>
@@ -19,9 +22,13 @@ const { projects } = Astro.props;
         </div>
 
         <div class="slider no-select">
-          {project.images.map((src, index) => (
+          {project.images.map((image, index) => (
             <img
-              src={src}
+              src={image.src}
+              srcset={image.srcset}
+              sizes={sizes}
+              loading={projectIndex < 2 && index === 0 ? 'eager' : 'lazy'}
+              decoding="async"
               alt={`Image ${index + 1}`}
               class="item"
               style={`transition-duration: 0ms; transform: translateX(${index * 100}% );`}

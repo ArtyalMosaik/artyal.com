@@ -2,6 +2,7 @@ import site from '../data/site.json';
 
 /** Réglages généraux (éditables dans LiteEditor : src/data/site.json). Les champs vides sont ignorés. */
 export interface Site {
+  homeBackground: string;
   email: string;
   phone: string;
   instagram: string;
@@ -9,6 +10,7 @@ export interface Site {
 }
 
 export const settings: Site = {
+  homeBackground: 'public/images/accueil/fond.webp',
   email: '',
   phone: '',
   instagram: '',

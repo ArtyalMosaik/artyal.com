@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { getCollection } from 'astro:content';
+import { imageVariants } from '../plugins/images.mjs';
 import { assetUrl } from './assets';
 
 /**
@@ -51,7 +52,7 @@ export interface ProjectView {
   id: string;
   title: string;
   html: string;
-  images: string[];
+  images: { src: string; srcset?: string }[];
   /** Les fiches paires ont l'image à gauche, les impaires à droite. */
   side: 'img-left' | 'img-right';
 }
@@ -59,11 +60,18 @@ export interface ProjectView {
 export async function getProjects(collection: keyof typeof DEFAULT_GAP): Promise<ProjectView[]> {
   const entries = await getCollection(collection);
   entries.sort((a, b) => a.data.order - b.data.order || a.id.localeCompare(b.id));
-  return entries.map((entry, index) => ({
-    id: entry.id,
-    title: entry.data.title.trim(),
-    html: renderBody(rawBody(entry.filePath, entry.body ?? ''), entry.data.details, collection),
-    images: entry.data.images.map(assetUrl),
-    side: index % 2 === 0 ? 'img-left' : 'img-right',
-  }));
+  return Promise.all(
+    entries.map(async (entry, index) => ({
+      id: entry.id,
+      title: entry.data.title.trim(),
+      html: renderBody(rawBody(entry.filePath, entry.body ?? ''), entry.data.details, collection),
+      // Versions WebP pré-générées au build ; image d'origine si elle n'est pas optimisable
+      images: await Promise.all(
+        entry.data.images.map(
+          async (path) => (await imageVariants(import.meta.env.BASE_URL, path)) ?? { src: assetUrl(path) },
+        ),
+      ),
+      side: (index % 2 === 0 ? 'img-left' : 'img-right') as ProjectView['side'],
+    })),
+  );
 }

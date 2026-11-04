@@ -3,6 +3,11 @@
   "assets_path": "public/images",
   "settings_file": "src/data/site.json",
   "schema": {
+    "homeBackground": {
+      "label": "Image de fond de l'accueil",
+      "description": "Photo plein écran de la page d'accueil. Les tailles pour mobile, tablette et grand écran sont générées automatiquement : une grande photo (≥ 2560 px de large) convient.",
+      "type": "image"
+    },
     "email": {
       "label": "E-mail de contact",
       "description": "Affiché sur la page Contact (lien mailto). Laisser vide pour masquer.",

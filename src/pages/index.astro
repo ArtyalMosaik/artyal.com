@@ -3,16 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/index.css';
 import SocialLinks from '../components/SocialLinks.astro';
 import { pageUrl } from '../utils/assets';
+import { BACKGROUND_WIDTHS, backgroundCss, backgroundUrl } from '../utils/background';
 
 const site = 'https://www.artyal.com';
 const title = 'ARTYAL Mozaïk - Accueil';
 const ogDescription = 'Découvrez les créations en mosaïque de Yaëlle Lohé, artiste mosaïste.';
-const ogImage = `${site}/res/main_image/main-1280.webp`;
+const ogImage = `${site}${backgroundUrl(1280).replace(/^.*?(\/res\/)/, '$1')}`;
 
-// Image d'accueil : tailles responsives pré-calculées (voir scripts/resize.sh)
-const widths = [320, 480, 640, 800, 1024, 1280, 1600, 1920];
-const src = pageUrl('res/main_image/main-320.webp');
-const srcset = widths.map((w) => `${pageUrl(`res/main_image/main-${w}.webp`)} ${w}w`).join(', ');
+// Image d'accueil (préchargée, masquée) : tailles responsives générées au build
+const widths = BACKGROUND_WIDTHS.filter((w) => [320, 480, 640, 800, 1024, 1280, 1600, 1920].includes(w));
+const src = backgroundUrl(320);
+const srcset = widths.map((w) => `${backgroundUrl(w)} ${w}w`).join(', ');
 const sizes = [...widths.slice(0, -1).map((w) => `(max-width: ${w}px) ${w}px`), '1920px'].join(', ');
 ---
 
@@ -35,6 +36,7 @@ const sizes = [...widths.slice(0, -1).map((w) => `(max-width: ${w}px) ${w}px`), 
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={ogImage} />
+    <style is:inline set:html={backgroundCss()} />
   </Fragment>
 
   <main>

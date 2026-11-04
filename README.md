@@ -34,6 +34,14 @@ Ajouter une fiche : créer un `.md` dans `src/content/galerie/` ou `src/content/
 - **À propos** : `src/content/pages/about.md`. Texte en Markdown ; les photos s'insèrent depuis la barre d'outils
   de l'éditeur (dossier `public/images/a-propos/`).
 
+## Images
+
+Il suffit de déposer les photos d'origine dans `public/images/` (via LiteEditor) : au build, chaque image utilisée
+par le contenu est convertie en WebP en plusieurs largeurs (480 → 2400 px, jamais agrandies) dans `dist/img/`.
+Les pages utilisent `srcset` / `sizes` calculés d'après la largeur affichée (sliders, page À propos) et
+`loading="lazy"` ; le navigateur télécharge la taille adaptée à l'écran. Voir `src/plugins/images.mjs`.
+L'image de fond de l'accueil suit le même principe (`src/pages/res/main_image/`), sa taille dépend de l'écran.
+
 ## Commandes
 
 ```sh

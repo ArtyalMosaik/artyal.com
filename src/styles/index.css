@@ -6,9 +6,8 @@ main {
     background-position: center;
     background-attachment: scroll;
 
-    /* Image par défaut : la plus légère (petits écrans en portrait) */
-    background-image: url('/res/main_image/main-720.webp');
-    
+    /* L'image de fond (responsive) est définie dans index.astro à partir des réglages généraux. */
+
     /* Overlay */
     display: flex;
     align-items: center;
@@ -29,36 +28,4 @@ main h2 a {
 main h2 a:hover {
     backdrop-filter: blur(10px);
     box-shadow: 0 0 0.5em 0.2em rgba(0, 0, 0, 0.1);
-}
-
-/* Image de fond selon l'écran. Les règles vont du plus petit au plus grand écran :
-   chacune ne s'applique qu'à sa plage, donc l'ordre n'a pas d'effet de surcharge. */
-
-/* Mobile (≤ 600px) : portrait = image par défaut (720) */
-@media screen and (max-width: 600px) and (orientation: landscape) {
-    main { background-image: url('/res/main_image/main-1080.webp'); }
-}
-
-/* Mobile haute densité (Retina et autres) */
-@media screen and (max-width: 600px) and (orientation: portrait) and (min-resolution: 192dpi) {
-    main { background-image: url('/res/main_image/main-1080.webp'); }
-}
-@media screen and (max-width: 600px) and (orientation: landscape) and (min-resolution: 192dpi) {
-    main { background-image: url('/res/main_image/main-1280.webp'); }
-}
-
-/* Tablettes (601px – 1024px) */
-@media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
-    main { background-image: url('/res/main_image/main-1080.webp'); }
-}
-@media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
-    main { background-image: url('/res/main_image/main-1280.webp'); }
-}
-
-/* Grands écrans (≥ 1025px) */
-@media screen and (min-width: 1025px) and (orientation: portrait) {
-    main { background-image: url('/res/main_image/main-1920.webp'); }
-}
-@media screen and (min-width: 1025px) and (orientation: landscape) {
-    main { background-image: url('/res/main_image/main-2560.webp'); }
 }
