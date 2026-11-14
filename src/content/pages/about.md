@@ -1,5 +1,9 @@
 ---
 title: Qui suis-je ?
+menu: À propos
+menu_order: 3
+show_title: true
+description: Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque.
 ---
 
 Je me présente, je m'appelle Yaëlle Lohé. Je suis artiste/artisan mosaïste diplômée en mosaïque ornementale à l'Ecole Nationale Supérieure des Arts Appliqués et des Métiers d'Arts à Paris.

@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import remarkContentImages from './src/plugins/remark-content-images.mjs';
+import remarkLiteditorElements from './src/plugins/remark-liteditor-elements.mjs';
 
 // BASE_PATH est injecté par le workflow GitHub Actions (vide pour un domaine personnalisé).
 const base = process.env.BASE_PATH || '/';
@@ -16,7 +17,7 @@ export default defineConfig({
     // Garde les apostrophes et guillemets tels qu'ils sont saisis (pas de typographie automatique)
     processor: unified({
       smartypants: false,
-      remarkPlugins: [[remarkContentImages, { base }]],
+      remarkPlugins: [[remarkLiteditorElements, { base }], [remarkContentImages, { base }]],
     }),
   },
 });

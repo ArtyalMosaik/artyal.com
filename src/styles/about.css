@@ -1,9 +1,9 @@
-main {
+main.text {
     padding: 2em;
     height: fit-content;
 }
 
-main img {
+main.text img {
     position: relative;
     max-height: 50vmin;
     width: auto;
@@ -14,7 +14,7 @@ main img {
 
 
 .image-center,
-main p > img {
+main.text p > img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -22,26 +22,26 @@ main p > img {
     height: auto;
 }
 
-main p {
+main.text p {
     text-align: justify;
 }
 
 /* Large screens */
 @media (min-width: 1600px) {
-    main {
+    main.text {
         margin: 0 25%;
     }
 }
 
 /* Mobile */
 @media screen and (max-width: 600px) {
-    main {
+    main.text {
         display: flex;
         flex-direction: column;
     }
 
-    main img .image-center,
-    main p > img {
+    main.text img .image-center,
+    main.text p > img {
         float: none;
         margin: 0;
         align-self: center;

@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/slider.css';
+import '../../styles/projects.css';
+import '../../styles/about.css';
+
+// Une page par fichier de src/content/pages : /pages/<nom du fichier>.html (contact.astro reste une page à part)
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map((page) => ({ params: { slug: page.id }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+const { title, menu, description, show_title } = page.data;
+// Les pages de fiches (galerie, chantiers) ont leur propre mise en page ; les autres sont du texte courant
+const kind = page.body?.includes('liteditor-element:project') ? 'projects' : 'text';
+---
+
+<Layout title={`ARTYAL Mozaïk - ${(menu || title).trim()}`} description={description} current={page.id}>
+  <main class={kind}>
+    {show_title && <h2>{title}</h2>}
+    <Content />
+  </main>
+</Layout>
+
+<script>
+  import '../../scripts/slider';
+</script>

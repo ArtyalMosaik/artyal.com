@@ -1,25 +1,20 @@
 ---
 import '../styles/styles.css';
 import { pageUrl } from '../utils/assets';
+import { getMenu } from '../utils/pages';
 
 interface Props {
   title: string;
   description?: string;
-  /** Entrées du menu à marquer `current` (identifiants : home, gallery, chantier, about, contact) */
-  current?: string[];
+  /** Entrée du menu à marquer `current` (`home`, `contact` ou le nom du fichier de la page) */
+  current?: string;
   /** Lien « Accueil » : `#` sur la page d'accueil elle-même */
   home?: boolean;
 }
 
-const { title, description, current = [], home = false } = Astro.props;
+const { title, description, current = '', home = false } = Astro.props;
 
-const nav = [
-  { id: 'home', label: 'Accueil', href: home ? '#' : pageUrl('index.html') },
-  { id: 'gallery', label: 'Galerie', href: pageUrl('pages/gallery.html') },
-  { id: 'chantier', label: 'Chantiers et commandes', href: pageUrl('pages/chantier.html') },
-  { id: 'about', label: 'À propos', href: pageUrl('pages/about.html') },
-  { id: 'contact', label: 'Contact', href: pageUrl('pages/contact.html') },
-];
+const nav = await getMenu(home);
 const logo = pageUrl('res/logo.svg');
 ---
 
@@ -43,7 +38,7 @@ const logo = pageUrl('res/logo.svg');
 
       <ul id="navigation">
         {nav.map((item) => (
-          <li class={current.includes(item.id) ? 'current' : ''}>
+          <li class={current === item.id ? 'current' : ''}>
             <a href={item.href}>{item.label}</a>
           </li>
         ))}
