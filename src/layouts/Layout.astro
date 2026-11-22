@@ -1,0 +1,49 @@
+---
+import '../styles/styles.css';
+import { pageUrl } from '../utils/assets';
+import { getMenu } from '../utils/pages';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Entrée du menu à marquer `current` (`home`, `contact` ou le nom du fichier de la page) */
+  current?: string;
+  /** Lien « Accueil » : `#` sur la page d'accueil elle-même */
+  home?: boolean;
+}
+
+const { title, description, current = '', home = false } = Astro.props;
+
+const nav = await getMenu(home);
+const logo = pageUrl('res/logo.svg');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <slot name="head" />
+    <link rel="shortcut icon" href={logo} type="image/x-icon" />
+  </head>
+
+  <body>
+    <header>
+      <div id="top">
+        <h1>ARTYAL Mozaïk</h1>
+        <img src={logo} alt="Logo" height="5em" width="3.5em" />
+      </div>
+
+      <ul id="navigation">
+        {nav.map((item) => (
+          <li class={current === item.id ? 'current' : ''}>
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </header>
+    <slot />
+  </body>
+</html>

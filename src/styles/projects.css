@@ -1,0 +1,78 @@
+main.projects {
+    height: calc(100vh - 12em);
+}
+
+section {
+    display: grid;
+    margin: 2em;
+    height: min-content;
+}
+
+section.img-right {
+    grid-template-areas:
+        "text  img";
+    grid-template-columns: 1fr 2fr;
+}
+
+section.img-left {
+    grid-template-areas:
+        "img   text";
+    grid-template-columns: 2fr 1fr;
+}
+
+section .content {
+    grid-area: text;
+    padding: 1em;
+}
+
+section .content h2,
+section .content h3,
+section .content h4,
+section .content h5,
+section .content h6 {
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+
+section .content blockquote {
+    margin: 0;
+    padding: 0;
+    padding-left: 1em;
+    margin-top: 1em;
+    font-style: italic;
+    border-left: 5px solid var(--ternary);
+}
+
+section .slider {
+    grid-area: img;
+    height: 100%;
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    section.img-right,
+    section.img-left {
+        grid-template-areas:
+            "img"
+            "text";
+        grid-template-columns: 1fr;
+    }
+
+    section .content {
+        padding: 1em;
+    }
+
+    section .slider {
+        height: 50vh;
+    }
+
+    section {
+        border-bottom: 1px solid var(--ternary);
+    }
+}
+
+/* Texte de présentation (ancien <p> rempli en JavaScript) : un <div> pour pouvoir contenir titres et citations,
+   avec les mêmes marges qu'un paragraphe. */
+section .content .description {
+    margin: 1em 0;
+}

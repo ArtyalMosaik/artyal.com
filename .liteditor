@@ -1,0 +1,94 @@
+{
+  "content_path": "src/content",
+  "assets_path": "public/images",
+  "settings_file": "src/data/site.json",
+  "schema": {
+    "homeBackground": {
+      "label": "Image de fond de l'accueil",
+      "description": "Photo plein écran de la page d'accueil. Les tailles pour mobile, tablette et grand écran sont générées automatiquement : une grande photo (≥ 2560 px de large) convient.",
+      "type": "image"
+    },
+    "email": {
+      "label": "E-mail de contact",
+      "description": "Affiché sur la page Contact (lien mailto). Laisser vide pour masquer.",
+      "type": "short-text"
+    },
+    "phone": {
+      "label": "Téléphone",
+      "description": "Affiché tel quel sur la page Contact, ex. +33 7 77 20 95 00. Laisser vide pour masquer.",
+      "type": "short-text"
+    },
+    "instagram": {
+      "label": "Lien Instagram",
+      "description": "Icône affichée sur l'accueil et la page Contact. Laisser vide pour masquer.",
+      "type": "link"
+    },
+    "facebook": {
+      "label": "Lien Facebook",
+      "description": "Icône affichée sur l'accueil et la page Contact. Laisser vide pour masquer.",
+      "type": "link"
+    }
+  },
+  "elements": {
+    "project": {
+      "label": "Fiche œuvre / chantier",
+      "description": "Une fiche de la Galerie ou des Chantiers : titre, texte, photos et note. Les fiches alternent automatiquement image à gauche / image à droite, dans l'ordre de la page.",
+      "fields": {
+        "title": { "label": "Titre", "description": "Nom de l'œuvre ou du chantier", "type": "short-text" },
+        "description": { "label": "Description", "description": "Texte de présentation", "type": "long-text" },
+        "footnote": {
+          "label": "Note",
+          "description": "Une ligne par information, en italique sous le texte : année, dimensions, matériaux, prix ou « Vendue »…",
+          "type": "long-text"
+        },
+        "images": {
+          "label": "Images",
+          "description": "Photos du diaporama, dans l'ordre d'affichage",
+          "type": "list",
+          "itemSchema": { "label": "Image", "type": "image" }
+        }
+      },
+      "display": { "title": "title", "description": "description", "images": "images" }
+    },
+    "slider": {
+      "label": "Diaporama",
+      "description": "Diaporama d'images à insérer n'importe où dans le texte d'une page (ex. À propos)",
+      "fields": {
+        "images": {
+          "label": "Images",
+          "description": "Photos du diaporama, dans l'ordre d'affichage",
+          "type": "list",
+          "itemSchema": { "label": "Image", "type": "image" }
+        }
+      },
+      "display": { "images": "images" }
+    }
+  },
+  "frontmatter": {
+    "title": {
+      "label": "Titre",
+      "description": "Titre de la page (affiché en en-tête si « Afficher le titre » est coché, et utilisé dans l'onglet du navigateur)",
+      "type": "short-text"
+    },
+    "menu": {
+      "label": "Texte dans le menu",
+      "description": "Nom du lien dans la barre du haut. Laisser vide pour ne pas afficher la page dans le menu.",
+      "type": "short-text"
+    },
+    "menu_order": {
+      "label": "Position dans le menu",
+      "description": "1 = en premier (après Accueil). Contact reste toujours en dernier.",
+      "type": "short-text"
+    },
+    "show_title": {
+      "label": "Afficher le titre",
+      "description": "Affiche le titre en en-tête de la page. À laisser décoché pour les pages de fiches (Galerie, Chantiers).",
+      "type": "boolean"
+    },
+    "description": {
+      "label": "Description",
+      "description": "Résumé de la page pour les moteurs de recherche (facultatif)",
+      "type": "long-text"
+    }
+  }
+}
