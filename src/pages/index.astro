@@ -4,11 +4,12 @@ import '../styles/index.css';
 import SiteFooter from '../components/SiteFooter.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import { pageUrl } from '../utils/assets';
+import { settings } from '../utils/site';
 import { BACKGROUND_WIDTHS, backgroundCss, backgroundUrl } from '../utils/background';
 
 const site = 'https://www.artyal.com';
-const title = 'ARTYAL Mozaïk - Accueil';
-const ogDescription = 'Découvrez les créations en mosaïque de Yaëlle Lohé, artiste mosaïste.';
+const title = `${settings.siteName} - Accueil`;
+const ogDescription = settings.siteDescription;
 const ogImage = `${site}${backgroundUrl(1280).replace(/^.*?(\/res\/)/, '$1')}`;
 
 // Image d'accueil (préchargée, masquée) : tailles responsives générées au build
@@ -20,7 +21,7 @@ const sizes = [...widths.slice(0, -1).map((w) => `(max-width: ${w}px) ${w}px`), 
 
 <Layout
   title={title}
-  description="Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque."
+  description={ogDescription}
   current="home"
   home
 >
@@ -43,14 +44,14 @@ const sizes = [...widths.slice(0, -1).map((w) => `(max-width: ${w}px) ${w}px`), 
   <main>
     <section id="contentG">
       <h2 class="texte-projet">
-        <a href={pageUrl('pages/gallery.html')}>Découvrez les projets &gt;</a>
+        <a href={pageUrl('pages/gallery.html')}>{settings.homeLink} &gt;</a>
       </h2>
     </section>
   </main>
 
   <SiteFooter>
-    <h3>Yaëlle Lohé</h3>
-    <p>Artiste Mosaïste</p>
+    {settings.homeName && <h3>{settings.homeName}</h3>}
+    {settings.homeSubtitle && <p>{settings.homeSubtitle}</p>}
 
     <SocialLinks size="32px" />
   </SiteFooter>

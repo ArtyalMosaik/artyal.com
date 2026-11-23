@@ -3,6 +3,36 @@
   "assets_path": "public/images",
   "settings_file": "src/data/site.json",
   "schema": {
+    "logo": {
+      "label": "Logo",
+      "description": "Affiché dans l'en-tête de toutes les pages et utilisé comme icône de l'onglet du navigateur (SVG ou PNG conseillé).",
+      "type": "image"
+    },
+    "siteName": {
+      "label": "Nom du site",
+      "description": "Titre affiché dans l'en-tête de toutes les pages.",
+      "type": "short-text"
+    },
+    "siteDescription": {
+      "label": "Description du site",
+      "description": "Résumé affiché par Google et lors des partages sur les réseaux sociaux (Facebook, Instagram…). Utilisé pour les pages sans description propre.",
+      "type": "long-text"
+    },
+    "homeLink": {
+      "label": "Accueil : texte du lien",
+      "description": "Lien vers la galerie au centre de l'accueil (la flèche « > » est ajoutée automatiquement).",
+      "type": "short-text"
+    },
+    "homeName": {
+      "label": "Accueil : nom",
+      "description": "Nom affiché en bas de l'accueil. Laisser vide pour masquer.",
+      "type": "short-text"
+    },
+    "homeSubtitle": {
+      "label": "Accueil : sous-titre",
+      "description": "Ligne sous le nom en bas de l'accueil. Laisser vide pour masquer.",
+      "type": "short-text"
+    },
     "homeBackground": {
       "label": "Image de fond de l'accueil",
       "description": "Photo plein écran de la page d'accueil. Les tailles pour mobile, tablette et grand écran sont générées automatiquement : une grande photo (≥ 2560 px de large) convient.",

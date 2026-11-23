@@ -1,7 +1,8 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/styles.css';
-import { pageUrl } from '../utils/assets';
+import { assetUrl } from '../utils/assets';
+import { settings } from '../utils/site';
 import { getMenu } from '../utils/pages';
 
 interface Props {
@@ -13,10 +14,10 @@ interface Props {
   home?: boolean;
 }
 
-const { title, description, current = '', home = false } = Astro.props;
+const { title, description = settings.siteDescription, current = '', home = false } = Astro.props;
 
 const nav = await getMenu(home);
-const logo = pageUrl('res/logo.svg');
+const logo = assetUrl(settings.logo);
 ---
 
 <!doctype html>
@@ -34,8 +35,8 @@ const logo = pageUrl('res/logo.svg');
   <body>
     <header>
       <div id="top">
-        <h1>ARTYAL Mozaïk</h1>
-        <img src={logo} alt="Logo" height="5em" width="3.5em" />
+        <h1>{settings.siteName}</h1>
+        <img src={logo} alt={settings.siteName} height="5em" width="3.5em" />
       </div>
 
       <ul id="navigation">
