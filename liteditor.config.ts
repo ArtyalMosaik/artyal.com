@@ -40,22 +40,24 @@ export default defineConfig({
       description:
         'Résumé affiché par Google et lors des partages sur les réseaux sociaux (Facebook, Instagram…). Utilisé pour les pages sans description propre.',
     }),
-    homeLinkPage: f.page('Accueil : page du lien', {
-      description: "Page vers laquelle mène le lien au centre de l'accueil.",
-      extra: [{ value: '/contact', label: 'Contact' }],
-    }),
-    homeLink: f.text('Accueil : texte du lien', {
-      description: "Lien vers la galerie au centre de l'accueil (la flèche « > » est ajoutée automatiquement).",
-    }),
-    homeName: f.text('Accueil : nom', {
-      description: "Nom affiché en bas de l'accueil. Laisser vide pour masquer.",
-    }),
-    homeSubtitle: f.text('Accueil : sous-titre', {
-      description: "Ligne sous le nom en bas de l'accueil. Laisser vide pour masquer.",
-    }),
-    homeBackground: f.image("Image de fond de l'accueil", {
-      description:
-        "Photo plein écran de la page d'accueil. Les tailles pour mobile, tablette et grand écran sont générées automatiquement : une grande photo (≥ 2560 px de large) convient.",
+    home: f.object('Accueil', {
+      linkPage: f.page('Page du lien', {
+        description: "Page vers laquelle mène le lien au centre de l'accueil.",
+        extra: [{ value: '/contact', label: 'Contact' }],
+      }),
+      link: f.text('Texte du lien', {
+        description: "Lien vers la galerie au centre de l'accueil (la flèche « &gt; » est ajoutée automatiquement).",
+      }),
+      name: f.text('Nom', {
+        description: "Nom affiché en bas de l'accueil. Laisser vide pour masquer.",
+      }),
+      subtitle: f.text('Sous-titre', {
+        description: "Ligne sous le nom en bas de l'accueil. Laisser vide pour masquer.",
+      }),
+      background: f.image('Image de fond', {
+        description:
+          "Photo plein écran de la page d'accueil. Les tailles pour mobile, tablette et grand écran sont générées automatiquement : une grande photo (≥ 2560 px de large) convient.",
+      }),
     }),
     email: f.text('E-mail de contact', {
       description: 'Affiché sur la page Contact (lien mailto). Laisser vide pour masquer.',

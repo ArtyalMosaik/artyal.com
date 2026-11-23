@@ -6,11 +6,13 @@ export interface Site {
   logo: string;
   siteName: string;
   siteDescription: string;
-  homeLinkPage: string;
-  homeLink: string;
-  homeName: string;
-  homeSubtitle: string;
-  homeBackground: string;
+  home: {
+    linkPage: string;
+    link: string;
+    name: string;
+    subtitle: string;
+    background: string;
+  };
   email: string;
   phone: string;
   instagram: string;
@@ -18,21 +20,28 @@ export interface Site {
   copyright: string;
 }
 
-export const settings: Site = {
+const defaults: Site = {
   logo: 'public/res/logo.svg',
   siteName: 'ARTYAL Mozaïk',
   siteDescription: 'Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque.',
-  homeLinkPage: 'pages/gallery',
-  homeLink: 'Découvrez les projets',
-  homeName: 'Yaëlle Lohé',
-  homeSubtitle: 'Artiste Mosaïste',
-  homeBackground: 'public/images/accueil/fond.webp',
+  home: {
+    linkPage: 'pages/gallery',
+    link: 'Découvrez les projets',
+    name: 'Yaëlle Lohé',
+    subtitle: 'Artiste Mosaïste',
+    background: 'public/images/accueil/fond.webp',
+  },
   email: '',
   phone: '',
   instagram: '',
   facebook: '',
   copyright: 'Copyright © Yaëlle Lohé - Artiste Mosaïste',
+};
+
+export const settings: Site = {
+  ...defaults,
   ...site,
+  home: { ...defaults.home, ...site.home },
 };
 
 /** Valeur d'un réglage « page » (slug, « /contact » ou URL externe) -> URL du site. */

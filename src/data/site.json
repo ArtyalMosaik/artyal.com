@@ -2,11 +2,13 @@
   "logo": "public/res/logo.svg",
   "siteName": "ARTYAL Mozaïk",
   "siteDescription": "Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque.",
-  "homeLinkPage": "pages/gallery",
-  "homeLink": "Découvrez les projets",
-  "homeName": "Yaëlle Lohé",
-  "homeSubtitle": "Artiste Mosaïste",
-  "homeBackground": "public/images/accueil/fond.webp",
+  "home": {
+    "linkPage": "pages/gallery",
+    "link": "Découvrez les projets",
+    "name": "Yaëlle Lohé",
+    "subtitle": "Artiste Mosaïste",
+    "background": "public/images/accueil/fond.webp"
+  },
   "email": "mosaik@artyal.com",
   "phone": "+33 7 77 20 95 00",
   "instagram": "https://www.instagram.com/artyal.mosaik/",

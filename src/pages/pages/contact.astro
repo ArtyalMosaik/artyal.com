@@ -11,7 +11,7 @@ import { settings, phoneHref } from '../../utils/site';
   current="contact"
 >
   <main>
-    {settings.homeName && <h3>{settings.homeName}</h3>}
+    {settings.home.name && <h3>{settings.home.name}</h3>}
     <SocialLinks />
 
     {settings.email && <p><a href={`mailto:${settings.email}`} target="_blank">{settings.email}</a></p>}

@@ -9,7 +9,7 @@ export const getStaticPaths = (() =>
   BACKGROUND_WIDTHS.map((width) => ({ params: { width: String(width) } }))) satisfies GetStaticPaths;
 
 export const GET: APIRoute = async ({ params }) => {
-  const source = settings.homeBackground;
+  const source = settings.home.background;
   if (!source || !existsSync(source)) {
     throw new Error(`Image de fond introuvable : « ${source} » (réglage « Image de fond de l'accueil »)`);
   }

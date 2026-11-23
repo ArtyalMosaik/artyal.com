@@ -43,14 +43,14 @@ const sizes = [...widths.slice(0, -1).map((w) => `(max-width: ${w}px) ${w}px`), 
   <main>
     <section id="contentG">
       <h2 class="texte-projet">
-        <a href={pageLink(settings.homeLinkPage)}>{settings.homeLink} &gt;</a>
+        <a href={pageLink(settings.home.linkPage)}>{settings.home.link} &gt;</a>
       </h2>
     </section>
   </main>
 
   <SiteFooter>
-    {settings.homeName && <h3>{settings.homeName}</h3>}
-    {settings.homeSubtitle && <p>{settings.homeSubtitle}</p>}
+    {settings.home.name && <h3>{settings.home.name}</h3>}
+    {settings.home.subtitle && <p>{settings.home.subtitle}</p>}
 
     <SocialLinks size="32px" />
   </SiteFooter>
