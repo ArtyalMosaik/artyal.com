@@ -1,4 +1,6 @@
 ---
+page_type: projects
+page_mode: block
 title: Chantiers et commandes
 menu: Chantiers et commandes
 menu_order: "2"

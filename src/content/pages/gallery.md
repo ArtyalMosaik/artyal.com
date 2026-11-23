@@ -1,4 +1,6 @@
 ---
+page_type: projects
+page_mode: block
 title: Galerie
 menu: Galerie
 menu_order: "1"

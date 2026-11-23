@@ -18,36 +18,42 @@
       "type": "long-text",
       "description": "Résumé affiché par Google et lors des partages sur les réseaux sociaux (Facebook, Instagram…). Utilisé pour les pages sans description propre."
     },
-    "homeLinkPage": {
-      "label": "Accueil : page du lien",
-      "type": "page",
-      "extra": [
-        {
-          "value": "/contact",
-          "label": "Contact"
+    "home": {
+      "label": "Accueil",
+      "type": "object",
+      "fields": {
+        "linkPage": {
+          "label": "Page du lien",
+          "type": "page",
+          "extra": [
+            {
+              "value": "/contact",
+              "label": "Contact"
+            }
+          ],
+          "description": "Page vers laquelle mène le lien au centre de l'accueil."
+        },
+        "link": {
+          "label": "Texte du lien",
+          "type": "short-text",
+          "description": "Lien vers la galerie au centre de l'accueil (la flèche « &gt; » est ajoutée automatiquement)."
+        },
+        "name": {
+          "label": "Nom",
+          "type": "short-text",
+          "description": "Nom affiché en bas de l'accueil. Laisser vide pour masquer."
+        },
+        "subtitle": {
+          "label": "Sous-titre",
+          "type": "short-text",
+          "description": "Ligne sous le nom en bas de l'accueil. Laisser vide pour masquer."
+        },
+        "background": {
+          "label": "Image de fond",
+          "type": "image",
+          "description": "Photo plein écran de la page d'accueil. Les tailles pour mobile, tablette et grand écran sont générées automatiquement : une grande photo (≥ 2560 px de large) convient."
         }
-      ],
-      "description": "Page vers laquelle mène le lien au centre de l'accueil."
-    },
-    "homeLink": {
-      "label": "Accueil : texte du lien",
-      "type": "short-text",
-      "description": "Lien vers la galerie au centre de l'accueil (la flèche « > » est ajoutée automatiquement)."
-    },
-    "homeName": {
-      "label": "Accueil : nom",
-      "type": "short-text",
-      "description": "Nom affiché en bas de l'accueil. Laisser vide pour masquer."
-    },
-    "homeSubtitle": {
-      "label": "Accueil : sous-titre",
-      "type": "short-text",
-      "description": "Ligne sous le nom en bas de l'accueil. Laisser vide pour masquer."
-    },
-    "homeBackground": {
-      "label": "Image de fond de l'accueil",
-      "type": "image",
-      "description": "Photo plein écran de la page d'accueil. Les tailles pour mobile, tablette et grand écran sont générées automatiquement : une grande photo (≥ 2560 px de large) convient."
+      }
     },
     "email": {
       "label": "E-mail de contact",
@@ -155,6 +161,34 @@
       "display": {
         "images": "images"
       }
+    }
+  },
+  "page_types": {
+    "text": {
+      "label": "Page de texte (À propos)",
+      "description": "Texte libre avec photos et diaporamas.",
+      "folders": [
+        "pages"
+      ],
+      "modes": [
+        "rich"
+      ],
+      "elements": [
+        "slider"
+      ]
+    },
+    "projects": {
+      "label": "Page de fiches (Galerie, Chantiers)",
+      "description": "Uniquement des fiches œuvre / chantier, sans texte libre.",
+      "folders": [
+        "pages"
+      ],
+      "modes": [
+        "block"
+      ],
+      "elements": [
+        "project"
+      ]
     }
   }
 }

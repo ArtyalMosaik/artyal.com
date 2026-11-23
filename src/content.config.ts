@@ -13,6 +13,9 @@ const pages = defineCollection({
     // Affiche le titre en en-tête de la page (inutile pour les pages de fiches)
     show_title: z.boolean().default(false),
     description: z.string().optional(),
+    // Écrits par LiteEditor : type de page (voir liteditor.config.ts) et mode d'édition
+    page_type: z.string().optional(),
+    page_mode: z.string().optional(),
   }),
 });
 

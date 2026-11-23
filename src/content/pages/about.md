@@ -1,4 +1,5 @@
 ---
+page_type: text
 title: Qui suis-je ?
 menu: À propos
 menu_order: "3"

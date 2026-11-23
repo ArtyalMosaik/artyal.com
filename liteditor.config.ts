@@ -1,4 +1,4 @@
-import { defineConfig, defineElement, f } from 'liteditor'
+import { defineConfig, defineElement, definePageType, f } from 'liteditor'
 
 const images = f.list('Images', f.image('Image'), {
   description: "Photos du diaporama, dans l'ordre d'affichage",
@@ -76,6 +76,22 @@ export default defineConfig({
     }),
   },
   elements: { project, slider },
+  page_types: {
+    text: definePageType({
+      label: 'Page de texte (À propos)',
+      description: 'Texte libre avec photos et diaporamas.',
+      folders: ['pages'],
+      modes: ['rich'],
+      elements: ['slider'],
+    }),
+    projects: definePageType({
+      label: 'Page de fiches (Galerie, Chantiers)',
+      description: 'Uniquement des fiches œuvre / chantier, sans texte libre.',
+      folders: ['pages'],
+      modes: ['block'],
+      elements: ['project'],
+    }),
+  },
   frontmatter: {
     title: f.text('Titre', {
       description: "Titre de la page (affiché en en-tête si « Afficher le titre » est coché, et utilisé dans l'onglet du navigateur)",
