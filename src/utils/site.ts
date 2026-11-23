@@ -22,7 +22,7 @@ export const settings: Site = {
   logo: 'public/res/logo.svg',
   siteName: 'ARTYAL Mozaïk',
   siteDescription: 'Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque.',
-  homeLinkPage: 'gallery',
+  homeLinkPage: 'pages/gallery',
   homeLink: 'Découvrez les projets',
   homeName: 'Yaëlle Lohé',
   homeSubtitle: 'Artiste Mosaïste',
@@ -39,7 +39,7 @@ export const settings: Site = {
 export const pageLink = (value: string) =>
   /^https?:\/\//.test(value)
     ? value
-    : pageUrl(`pages/${value.replace(/^\//, '').replace(/\.html$/, '')}.html`);
+    : pageUrl(`pages/${value.replace(/^\//, '').replace(/^pages\//, '').replace(/\.html$/, '')}.html`);
 
 /** « +33 7 77 20 95 00 » -> « +33777209500 » pour le lien tel: */
 export const phoneHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, '')}`;
