@@ -2,6 +2,12 @@ import site from '../data/site.json';
 
 /** Réglages généraux (éditables dans LiteEditor : src/data/site.json). Les champs vides sont ignorés. */
 export interface Site {
+  logo: string;
+  siteName: string;
+  siteDescription: string;
+  homeLink: string;
+  homeName: string;
+  homeSubtitle: string;
   homeBackground: string;
   email: string;
   phone: string;
@@ -11,6 +17,12 @@ export interface Site {
 }
 
 export const settings: Site = {
+  logo: 'public/res/logo.svg',
+  siteName: 'ARTYAL Mozaïk',
+  siteDescription: 'Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque.',
+  homeLink: 'Découvrez les projets',
+  homeName: 'Yaëlle Lohé',
+  homeSubtitle: 'Artiste Mosaïste',
   homeBackground: 'public/images/accueil/fond.webp',
   email: '',
   phone: '',
