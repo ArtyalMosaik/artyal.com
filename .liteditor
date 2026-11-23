@@ -27,6 +27,11 @@
       "label": "Lien Facebook",
       "description": "Icône affichée sur l'accueil et la page Contact. Laisser vide pour masquer.",
       "type": "link"
+    },
+    "copyright": {
+      "label": "Texte du pied de page",
+      "description": "Affiché en bas de chaque page, suivi de « Site réalisé par Alexis Rossfelder ».",
+      "type": "short-text"
     }
   },
   "elements": {

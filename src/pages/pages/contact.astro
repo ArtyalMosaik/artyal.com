@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 import SocialLinks from '../../components/SocialLinks.astro';
 import '../../styles/contact.css';
 import { settings, phoneHref } from '../../utils/site';
@@ -17,4 +18,6 @@ import { settings, phoneHref } from '../../utils/site';
     {settings.email && <p><a href={`mailto:${settings.email}`} target="_blank">{settings.email}</a></p>}
     {settings.phone && <p><a href={phoneHref(settings.phone)}>{settings.phone}</a></p>}
   </main>
+
+  <SiteFooter plain />
 </Layout>

@@ -1,0 +1,14 @@
+---
+// Pied de page commun : contenu optionnel (slot) puis la ligne de copyright.
+// `plain` : version discrète (fond blanc) pour les pages intérieures.
+import { settings } from '../utils/site';
+
+const { plain = false } = Astro.props;
+---
+
+<footer class={plain ? 'plain' : undefined}>
+  <slot />
+  <p class="copyright">
+    {settings.copyright} - Site réalisé par <a href="https://liteapp.fr" target="_blank" rel="noopener">Alexis Rossfelder</a>
+  </p>
+</footer>

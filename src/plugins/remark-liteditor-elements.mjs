@@ -21,12 +21,12 @@ async function resolveImage(url, file, base) {
   return variants ?? { src: encodeURI(prefix + rel.split(path.sep).join('/')) };
 }
 
-async function sliderHtml(urls, file, base, { sizes = SIZES, eagerFirst = false } = {}) {
+async function sliderHtml(urls, file, base, { sizes = SIZES, highPriority = false } = {}) {
   const images = await Promise.all((urls ?? []).map((url) => resolveImage(url, file, base)));
   const items = images
     .map(
       (image, i) =>
-        `<img class="item" src="${esc(image.src)}"${image.srcset ? ` srcset="${esc(image.srcset)}" sizes="${sizes}"` : ''} loading="${eagerFirst && i === 0 ? 'eager' : 'lazy'}" decoding="async" alt="Image ${i + 1}" style="transition-duration: 0ms; transform: translateX(${i * 100}%);">`,
+        `<img class="item" src="${esc(image.src)}"${image.srcset ? ` srcset="${esc(image.srcset)}" sizes="${sizes}"` : ''} ${i === 0 ? ` loading="eager" fetchpriority="${highPriority ? 'high' : 'low'}"` : ' loading="lazy"'} decoding="async" alt="Image ${i + 1}" style="transition-duration: 0ms; transform: translateX(${i * 100}%);">`,
     )
     .join('');
   return `<div class="slider no-select">${items}<div class="controls"><div class="prev no-select">&lt;</div><div class="next no-select">&gt;</div></div></div>`;
@@ -40,7 +40,7 @@ const renderers = {
   // Fiche galerie / chantier : texte d'un côté, diaporama de l'autre ; le côté alterne selon le rang.
   async project(data, file, base, index) {
     const side = index % 2 === 0 ? 'img-left' : 'img-right';
-    const slider = await sliderHtml(data.images, file, base, { sizes: PROJECT_SIZES, eagerFirst: index < 2 });
+    const slider = await sliderHtml(data.images, file, base, { sizes: PROJECT_SIZES, highPriority: index < 2 });
     const text = renderProjectText(String(data.description ?? ''), String(data.footnote ?? ''));
     return `<section class="${side}"><div class="content"><h2>${esc(String(data.title ?? '').trim())}</h2><div class="description">${text}</div></div>${slider}</section>`;
   },
