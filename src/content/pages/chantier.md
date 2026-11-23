@@ -1,7 +1,7 @@
 ---
 title: Chantiers et commandes
 menu: Chantiers et commandes
-menu_order: 2
+menu_order: "2"
 ---
 
 ```liteditor-element:project

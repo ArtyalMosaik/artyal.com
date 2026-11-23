@@ -5,69 +5,101 @@
   "schema": {
     "logo": {
       "label": "Logo",
-      "description": "Affiché dans l'en-tête de toutes les pages et utilisé comme icône de l'onglet du navigateur (SVG ou PNG conseillé).",
-      "type": "image"
+      "type": "image",
+      "description": "Affiché dans l'en-tête de toutes les pages et utilisé comme icône de l'onglet du navigateur (SVG ou PNG conseillé)."
     },
     "siteName": {
       "label": "Nom du site",
-      "description": "Titre affiché dans l'en-tête de toutes les pages.",
-      "type": "short-text"
+      "type": "short-text",
+      "description": "Titre affiché dans l'en-tête de toutes les pages."
     },
     "siteDescription": {
       "label": "Description du site",
-      "description": "Résumé affiché par Google et lors des partages sur les réseaux sociaux (Facebook, Instagram…). Utilisé pour les pages sans description propre.",
-      "type": "long-text"
+      "type": "long-text",
+      "description": "Résumé affiché par Google et lors des partages sur les réseaux sociaux (Facebook, Instagram…). Utilisé pour les pages sans description propre."
     },
     "homeLinkPage": {
       "label": "Accueil : page du lien",
-      "description": "Page vers laquelle mène le lien au centre de l'accueil.",
       "type": "page",
-      "extra": [{ "value": "/contact", "label": "Contact" }]
+      "extra": [
+        {
+          "value": "/contact",
+          "label": "Contact"
+        }
+      ],
+      "description": "Page vers laquelle mène le lien au centre de l'accueil."
     },
     "homeLink": {
       "label": "Accueil : texte du lien",
-      "description": "Lien vers la galerie au centre de l'accueil (la flèche « > » est ajoutée automatiquement).",
-      "type": "short-text"
+      "type": "short-text",
+      "description": "Lien vers la galerie au centre de l'accueil (la flèche « > » est ajoutée automatiquement)."
     },
     "homeName": {
       "label": "Accueil : nom",
-      "description": "Nom affiché en bas de l'accueil. Laisser vide pour masquer.",
-      "type": "short-text"
+      "type": "short-text",
+      "description": "Nom affiché en bas de l'accueil. Laisser vide pour masquer."
     },
     "homeSubtitle": {
       "label": "Accueil : sous-titre",
-      "description": "Ligne sous le nom en bas de l'accueil. Laisser vide pour masquer.",
-      "type": "short-text"
+      "type": "short-text",
+      "description": "Ligne sous le nom en bas de l'accueil. Laisser vide pour masquer."
     },
     "homeBackground": {
       "label": "Image de fond de l'accueil",
-      "description": "Photo plein écran de la page d'accueil. Les tailles pour mobile, tablette et grand écran sont générées automatiquement : une grande photo (≥ 2560 px de large) convient.",
-      "type": "image"
+      "type": "image",
+      "description": "Photo plein écran de la page d'accueil. Les tailles pour mobile, tablette et grand écran sont générées automatiquement : une grande photo (≥ 2560 px de large) convient."
     },
     "email": {
       "label": "E-mail de contact",
-      "description": "Affiché sur la page Contact (lien mailto). Laisser vide pour masquer.",
-      "type": "short-text"
+      "type": "short-text",
+      "description": "Affiché sur la page Contact (lien mailto). Laisser vide pour masquer."
     },
     "phone": {
       "label": "Téléphone",
-      "description": "Affiché tel quel sur la page Contact, ex. +33 7 77 20 95 00. Laisser vide pour masquer.",
-      "type": "short-text"
+      "type": "short-text",
+      "description": "Affiché tel quel sur la page Contact, ex. +33 7 77 20 95 00. Laisser vide pour masquer."
     },
     "instagram": {
       "label": "Lien Instagram",
-      "description": "Icône affichée sur l'accueil et la page Contact. Laisser vide pour masquer.",
-      "type": "link"
+      "type": "link",
+      "description": "Icône affichée sur l'accueil et la page Contact. Laisser vide pour masquer."
     },
     "facebook": {
       "label": "Lien Facebook",
-      "description": "Icône affichée sur l'accueil et la page Contact. Laisser vide pour masquer.",
-      "type": "link"
+      "type": "link",
+      "description": "Icône affichée sur l'accueil et la page Contact. Laisser vide pour masquer."
     },
     "copyright": {
       "label": "Texte du pied de page",
-      "description": "Affiché en bas de chaque page, suivi de « Site réalisé par Alexis Rossfelder ».",
-      "type": "short-text"
+      "type": "short-text",
+      "description": "Affiché en bas de chaque page, suivi de « Site réalisé par Alexis Rossfelder »."
+    }
+  },
+  "frontmatter": {
+    "title": {
+      "label": "Titre",
+      "type": "short-text",
+      "description": "Titre de la page (affiché en en-tête si « Afficher le titre » est coché, et utilisé dans l'onglet du navigateur)"
+    },
+    "menu": {
+      "label": "Texte dans le menu",
+      "type": "short-text",
+      "description": "Nom du lien dans la barre du haut. Laisser vide pour ne pas afficher la page dans le menu."
+    },
+    "menu_order": {
+      "label": "Position dans le menu",
+      "type": "short-text",
+      "description": "1 = en premier (après Accueil). Contact reste toujours en dernier."
+    },
+    "show_title": {
+      "label": "Afficher le titre",
+      "type": "boolean",
+      "description": "Affiche le titre en en-tête de la page. À laisser décoché pour les pages de fiches (Galerie, Chantiers)."
+    },
+    "description": {
+      "label": "Description",
+      "type": "long-text",
+      "description": "Résumé de la page pour les moteurs de recherche (facultatif)"
     }
   },
   "elements": {
@@ -75,21 +107,36 @@
       "label": "Fiche œuvre / chantier",
       "description": "Une fiche de la Galerie ou des Chantiers : titre, texte, photos et note. Les fiches alternent automatiquement image à gauche / image à droite, dans l'ordre de la page.",
       "fields": {
-        "title": { "label": "Titre", "description": "Nom de l'œuvre ou du chantier", "type": "short-text" },
-        "description": { "label": "Description", "description": "Texte de présentation", "type": "long-text" },
+        "title": {
+          "label": "Titre",
+          "type": "short-text",
+          "description": "Nom de l'œuvre ou du chantier"
+        },
+        "description": {
+          "label": "Description",
+          "type": "long-text",
+          "description": "Texte de présentation"
+        },
         "footnote": {
           "label": "Note",
-          "description": "Une ligne par information, en italique sous le texte : année, dimensions, matériaux, prix ou « Vendue »…",
-          "type": "long-text"
+          "type": "long-text",
+          "description": "Une ligne par information, en italique sous le texte : année, dimensions, matériaux, prix ou « Vendue »…"
         },
         "images": {
           "label": "Images",
-          "description": "Photos du diaporama, dans l'ordre d'affichage",
           "type": "list",
-          "itemSchema": { "label": "Image", "type": "image" }
+          "itemSchema": {
+            "label": "Image",
+            "type": "image"
+          },
+          "description": "Photos du diaporama, dans l'ordre d'affichage"
         }
       },
-      "display": { "title": "title", "description": "description", "images": "images" }
+      "display": {
+        "title": "title",
+        "description": "description",
+        "images": "images"
+      }
     },
     "slider": {
       "label": "Diaporama",
@@ -97,39 +144,17 @@
       "fields": {
         "images": {
           "label": "Images",
-          "description": "Photos du diaporama, dans l'ordre d'affichage",
           "type": "list",
-          "itemSchema": { "label": "Image", "type": "image" }
+          "itemSchema": {
+            "label": "Image",
+            "type": "image"
+          },
+          "description": "Photos du diaporama, dans l'ordre d'affichage"
         }
       },
-      "display": { "images": "images" }
-    }
-  },
-  "frontmatter": {
-    "title": {
-      "label": "Titre",
-      "description": "Titre de la page (affiché en en-tête si « Afficher le titre » est coché, et utilisé dans l'onglet du navigateur)",
-      "type": "short-text"
-    },
-    "menu": {
-      "label": "Texte dans le menu",
-      "description": "Nom du lien dans la barre du haut. Laisser vide pour ne pas afficher la page dans le menu.",
-      "type": "short-text"
-    },
-    "menu_order": {
-      "label": "Position dans le menu",
-      "description": "1 = en premier (après Accueil). Contact reste toujours en dernier.",
-      "type": "short-text"
-    },
-    "show_title": {
-      "label": "Afficher le titre",
-      "description": "Affiche le titre en en-tête de la page. À laisser décoché pour les pages de fiches (Galerie, Chantiers).",
-      "type": "boolean"
-    },
-    "description": {
-      "label": "Description",
-      "description": "Résumé de la page pour les moteurs de recherche (facultatif)",
-      "type": "long-text"
+      "display": {
+        "images": "images"
+      }
     }
   }
 }

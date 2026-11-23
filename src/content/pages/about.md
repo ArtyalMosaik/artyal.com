@@ -1,7 +1,7 @@
 ---
 title: Qui suis-je ?
 menu: À propos
-menu_order: 3
+menu_order: "3"
 show_title: true
 description: Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque.
 ---

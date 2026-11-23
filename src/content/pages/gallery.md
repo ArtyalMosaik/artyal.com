@@ -1,7 +1,7 @@
 ---
 title: Galerie
 menu: Galerie
-menu_order: 1
+menu_order: "1"
 description: Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque.
 ---
 
