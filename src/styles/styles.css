@@ -77,6 +77,7 @@ header h1 {
     font-size: larger;
 }
 
+#navigation .current a,
 #navigation a:hover {
     color: var(--primary);
     text-decoration-color: var(--primary);
@@ -104,6 +105,54 @@ footer img {
     filter: invert(1);
 }
 
+/* Pages intérieures : pied de page discret (fond blanc, texte sombre) ; l'accueil garde le style coloré */
+footer.plain {
+    background-color: var(--background);
+    color: var(--text);
+    padding: 0.25em 1em;
+}
+
+footer.plain .copyright {
+    margin: 0;
+}
+
+footer .copyright {
+    margin: 1em 1em 0;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+footer .copyright a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+/* Icônes de réseaux sociaux (accueil, contact) */
+#social {
+    display: flex;
+    gap: 2em;
+}
+
+#social img {
+    transition: filter 0.3s, opacity 0.3s;
+}
+
+#social img:hover {
+    /* https://isotropic.co/tool/hex-color-to-css-filter/ */
+    filter: invert(44%) sepia(18%) saturate(1537%) hue-rotate(130deg) brightness(90%) contrast(95%);
+}
+
+footer #social img:hover {
+    filter: invert(1);
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 600px) {
+    #social {
+        gap: 1em;
+    }
+}
+
 .no-select {
     /* Disable text selection */
     user-select: none;
@@ -125,11 +174,6 @@ footer img {
 
     #navigation a {
         padding: 0.5em 1em;
-    }
-
-    #navigation .current a {
-        text-decoration: underline;
-        color: var(--primary);
     }
 
     #navigation li {
@@ -158,4 +202,9 @@ footer img {
     .texte-projet a {
         font-size: 24px;
     }
+}
+
+/* Transition de page : seul le contenu fond (fondu par défaut) ; la barre du haut est isolée et reste en place */
+header {
+    view-transition-name: site-header;
 }

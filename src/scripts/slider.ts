@@ -89,9 +89,20 @@ function set_slider(slider: Slider, index = -1, transitionTime = transitionDurat
   }
 }
 
+// Charge toutes les images d'un slider (appelé dès la première interaction)
+function preload_slider(slider: HTMLElement) {
+  slider.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach((img) => {
+    img.loading = 'eager';
+    img.decode().catch(() => {});
+  });
+}
+
 // Lie les événements d'un slider
 function bind_slider(el: HTMLElement) {
   const slider = el as Slider;
+  for (const type of ['pointerenter', 'touchstart', 'click']) {
+    slider.addEventListener(type, () => preload_slider(slider), { once: true, passive: true });
+  }
   slider.items = slider.querySelectorAll<HTMLElement>('.item');
   slider.current = 0;
   slider.max = slider.items.length - 1;
@@ -157,4 +168,7 @@ function bind_slider(el: HTMLElement) {
   });
 }
 
-document.querySelectorAll<HTMLElement>('.slider').forEach(bind_slider);
+// Re-lie les sliders à chaque navigation (ClientRouter remplace le DOM sans recharger la page)
+document.addEventListener('astro:page-load', () => {
+  document.querySelectorAll<HTMLElement>('.slider').forEach(bind_slider);
+});

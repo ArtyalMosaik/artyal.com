@@ -7,6 +7,7 @@ export interface Site {
   phone: string;
   instagram: string;
   facebook: string;
+  copyright: string;
 }
 
 export const settings: Site = {
@@ -15,6 +16,7 @@ export const settings: Site = {
   phone: '',
   instagram: '',
   facebook: '',
+  copyright: 'Copyright © Yaëlle Lohé - Artiste Mosaïste',
   ...site,
 };
 

@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import SiteFooter from '../../components/SiteFooter.astro';
 import Layout from '../../layouts/Layout.astro';
 import '../../styles/slider.css';
 import '../../styles/projects.css';
@@ -23,6 +24,8 @@ const kind = page.body?.includes('liteditor-element:project') ? 'projects' : 'te
     {show_title && <h2>{title}</h2>}
     <Content />
   </main>
+
+  <SiteFooter plain />
 </Layout>
 
 <script>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/index.css';
+import SiteFooter from '../components/SiteFooter.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import { pageUrl } from '../utils/assets';
 import { BACKGROUND_WIDTHS, backgroundCss, backgroundUrl } from '../utils/background';
@@ -47,12 +48,12 @@ const sizes = [...widths.slice(0, -1).map((w) => `(max-width: ${w}px) ${w}px`), 
     </section>
   </main>
 
-  <footer>
+  <SiteFooter>
     <h3>Yaëlle Lohé</h3>
     <p>Artiste Mosaïste</p>
 
     <SocialLinks size="32px" />
-  </footer>
+  </SiteFooter>
 
   <img src={src} srcset={srcset} sizes={sizes} style="display: none;" alt="" />
 </Layout>

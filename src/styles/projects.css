@@ -1,5 +1,5 @@
 main.projects {
-    height: calc(100vh - 12em);
+    min-height: calc(100vh - 12em);
 }
 
 section {

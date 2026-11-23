@@ -19,21 +19,6 @@ main h3 {
     color: var(--ternary);
 }
 
-#social {
-    display: flex;
-    gap: 2em;
-
-}
-
-#social img {
-    transition: filter 0.3s;
-}
-
-#social img:hover {
-    /* https://isotropic.co/tool/hex-color-to-css-filter/ */
-    filter: invert(44%) sepia(18%) saturate(1537%) hue-rotate(130deg) brightness(90%) contrast(95%);
-}
-
 main img {
     height: 2em;
 }
@@ -54,13 +39,6 @@ main a:hover {
         font-size: 1.5em;
     }
 
-    #social {
-        gap: 1em;
-    }
-
-    #social img {
-        height: 2em;
-    }
 }
 
 @media print {
