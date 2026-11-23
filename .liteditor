@@ -18,6 +18,12 @@
       "description": "Résumé affiché par Google et lors des partages sur les réseaux sociaux (Facebook, Instagram…). Utilisé pour les pages sans description propre.",
       "type": "long-text"
     },
+    "homeLinkPage": {
+      "label": "Accueil : page du lien",
+      "description": "Page vers laquelle mène le lien au centre de l'accueil.",
+      "type": "page",
+      "extra": [{ "value": "/contact", "label": "Contact" }]
+    },
     "homeLink": {
       "label": "Accueil : texte du lien",
       "description": "Lien vers la galerie au centre de l'accueil (la flèche « > » est ajoutée automatiquement).",

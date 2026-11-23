@@ -3,8 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/index.css';
 import SiteFooter from '../components/SiteFooter.astro';
 import SocialLinks from '../components/SocialLinks.astro';
-import { pageUrl } from '../utils/assets';
-import { settings } from '../utils/site';
+import { pageLink, settings } from '../utils/site';
 import { BACKGROUND_WIDTHS, backgroundCss, backgroundUrl } from '../utils/background';
 
 const site = 'https://www.artyal.com';
@@ -44,7 +43,7 @@ const sizes = [...widths.slice(0, -1).map((w) => `(max-width: ${w}px) ${w}px`), 
   <main>
     <section id="contentG">
       <h2 class="texte-projet">
-        <a href={pageUrl('pages/gallery.html')}>{settings.homeLink} &gt;</a>
+        <a href={pageLink(settings.homeLinkPage)}>{settings.homeLink} &gt;</a>
       </h2>
     </section>
   </main>

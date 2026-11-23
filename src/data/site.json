@@ -2,6 +2,7 @@
   "logo": "public/res/logo.svg",
   "siteName": "ARTYAL Mozaïk",
   "siteDescription": "Portfolio de Yaëlle Lohé, artiste mosaïste. Découvrez ses créations en mosaïque.",
+  "homeLinkPage": "gallery",
   "homeLink": "Découvrez les projets",
   "homeName": "Yaëlle Lohé",
   "homeSubtitle": "Artiste Mosaïste",
